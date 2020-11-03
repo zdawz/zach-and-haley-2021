@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/our-story">Our Story</router-link> |
-      <router-link to="/wedding-party">Wedding Party</router-link> |
-      <router-link to="/photos">Photos</router-link> |
-      <router-link to="/registry">Registry</router-link> |
-      <router-link to="/rsvp">RSVP</router-link> |
-      <router-link to="/guest-accommodations">Guest Accommodations</router-link>
+      <router-link to="/">HOME</router-link> |
+      <router-link to="/our-story">OUR STORY</router-link> |
+      <router-link to="/wedding-party">WEDDING PARTY</router-link> |
+      <router-link to="/photos">PHOTOS</router-link> |
+      <router-link to="/registry">REGISTRY</router-link> |
+      <router-link to="/guest-accommodations">GUEST ACCOMMODATIONS</router-link> |
+      <router-link to="/rsvp">RSVP</router-link>
     </div>
     <router-view />
   </div>
@@ -15,11 +15,11 @@
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "AlegreyaSC-Regular";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #2e2e2e;
 }
 
 #nav {
@@ -27,11 +27,30 @@
 }
 
 #nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  color: #2e2e2e;
+  text-decoration: none;
+  font-size: 16;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #8f72a2;
+}
+
+@font-face {
+  font-family: "AlegreyaSC-Regular";
+  src: local("AlegreyaSC-Regular"),
+       url("./fonts/AlegreyaSC-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "AlegreyaSC-Italic";
+  src: local("AlegreyaSC-Italic"),
+       url("./fonts/AlegreyaSC-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Aesthete";
+  src: local("Aesthete"),
+       url("./fonts/Aesthete.ttf") format("truetype");
 }
 </style>
