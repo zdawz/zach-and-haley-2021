@@ -1,10 +1,13 @@
 <template>
   <div class="home">
-    <div class="names">Haley & Zach</div>
     <img
       alt="Zach and Haley"
       src="../assets/images/DSC05091.jpg"
       class="image-center" />
+    <h1>Our Wedding</h1>
+    <div>Saturday, August 7, 2021</div>
+    <div>Kasota, MN</div>
+    <div># Days To Go</div>
   </div>
 </template>
 
@@ -22,8 +25,8 @@ export default {
   width: 75%;
 }
 
-.names {
+/* .names {
   font-family: "Aesthete";
   font-size: 150px;
-}
+} */
 </style>
