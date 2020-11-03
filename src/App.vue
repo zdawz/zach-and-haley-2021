@@ -36,6 +36,12 @@
   color: #8f72a2;
 }
 
+h1 {
+  font-family: Aesthete;
+  font-size: 80px;
+  margin-block-start: 0;
+}
+
 @font-face {
   font-family: "AlegreyaSC-Regular";
   src: local("AlegreyaSC-Regular"),
