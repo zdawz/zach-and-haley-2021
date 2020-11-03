@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">HOME</router-link> |
+      <div class="names">Haley & Zach</div>
+      <router-link to="/">OUR WEDDING</router-link> |
       <router-link to="/our-story">OUR STORY</router-link> |
       <router-link to="/wedding-party">WEDDING PARTY</router-link> |
       <router-link to="/photos">PHOTOS</router-link> |
-      <router-link to="/registry">REGISTRY</router-link> |
       <router-link to="/guest-accommodations">GUEST ACCOMMODATIONS</router-link> |
+      <router-link to="/registry">REGISTRY</router-link> |
       <router-link to="/rsvp">RSVP</router-link>
     </div>
     <router-view />
@@ -37,9 +38,19 @@
 }
 
 h1 {
-  font-family: Aesthete;
+  font-family: "Aesthete";
   font-size: 80px;
   margin-block-start: 0;
+}
+
+h2 {
+  font-family: "AlegreyaSC-Regular";
+  font-weight: normal;
+}
+
+.names {
+  font-family: "Aesthete";
+  font-size: 50px;
 }
 
 @font-face {
