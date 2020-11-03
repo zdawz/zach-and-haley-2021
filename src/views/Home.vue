@@ -1,10 +1,10 @@
 <template>
   <div class="home">
+    <div class="names">Haley & Zach</div>
     <img
       alt="Zach and Haley"
-      src="../assets/images/DSC04365.jpg"
-      class="center"
-    />
+      src="../assets/images/DSC05091.jpg"
+      class="image-center" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
@@ -22,10 +22,15 @@ export default {
 </script>
 
 <style>
-.center {
+.image-center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 75%;
+}
+
+.names {
+  font-family: "Aesthete";
+  font-size: 150px;
 }
 </style>
