@@ -1,5 +1,5 @@
 <template>
-  <div class="rsvp">
+  <div>
     <h1>RSVP</h1>
     <p>This might just be a link in the future</p>
   </div>
@@ -7,6 +7,6 @@
 
 <script>
 export default {
-  name: "RSVP",
+  name: 'RSVP',
 };
 </script>

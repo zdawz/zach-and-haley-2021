@@ -1,5 +1,5 @@
 <template>
-  <div class="wedding-party">
+  <div>
     <h1>Wedding Party</h1>
     <WeddingPartyBio 
       name="Kylie Pesik"
@@ -13,7 +13,7 @@
 import WeddingPartyBio from "@/components/WeddingPartyBio.vue";
 
 export default {
-  name: "Wedding Party",
+  name: 'Wedding Party',
   components: {
     WeddingPartyBio,
   },

@@ -1,10 +1,10 @@
 <template>
-  <div class="home">
+  <div>
+    <h1>Our Wedding</h1>
     <img
       alt="Zach and Haley"
       src="../assets/images/DSC05091.jpg"
       class="image-center" />
-    <h1>Our Wedding</h1>
     <div>Saturday, August 7, 2021</div>
     <div>Kasota, MN</div>
     <div># Days To Go</div>
@@ -13,20 +13,15 @@
 
 <script>
 export default {
-  name: "Home"
+  name: 'Home'
 };
 </script>
 
-<style>
+<style scoped>
 .image-center {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 75%;
 }
-
-/* .names {
-  font-family: "Aesthete";
-  font-size: 150px;
-} */
 </style>

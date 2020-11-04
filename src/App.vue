@@ -1,7 +1,14 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <div class="names">Haley & Zach</div>
+  <v-app>
+    <v-app-bar
+      app
+      color="rgb(255, 255, 255, 0.8)" >
+      <div class="d-flex align-center">
+        <div class="names">Haley & Zach</div>
+      </div>
+
+      <v-spacer></v-spacer>
+
       <router-link to="/">OUR WEDDING</router-link> |
       <router-link to="/our-story">OUR STORY</router-link> |
       <router-link to="/wedding-party">WEDDING PARTY</router-link> |
@@ -9,10 +16,19 @@
       <router-link to="/guest-accommodations">GUEST ACCOMMODATIONS</router-link> |
       <router-link to="/registry">REGISTRY</router-link> |
       <router-link to="/rsvp">RSVP</router-link>
-    </div>
-    <router-view />
-  </div>
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
+
+<script>
+export default {
+  name: 'App',
+};
+</script>
 
 <style>
 #app {
@@ -23,18 +39,13 @@
   color: #2e2e2e;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  color: #2e2e2e;
+.v-toolbar a {
+  color: #2e2e2e !important;
   text-decoration: none;
-  font-size: 16;
 }
 
-#nav a.router-link-exact-active {
-  color: #8f72a2;
+.v-toolbar a.router-link-exact-active {
+  color: #8f72a2 !important;
 }
 
 h1 {
