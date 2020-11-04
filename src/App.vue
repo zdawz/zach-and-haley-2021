@@ -52,6 +52,10 @@ export default {
   color: #4b4b4b !important;
 }
 
+.v-tab--active {
+  color: #8f72a2 !important;
+}
+
 h1 {
   font-family: "Aesthete";
   font-size: 80px;
