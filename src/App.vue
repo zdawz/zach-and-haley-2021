@@ -3,19 +3,18 @@
     <v-app-bar
       app
       color="rgb(255, 255, 255, 0.8)" >
-      <div class="d-flex align-center">
-        <div class="names">Haley & Zach</div>
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <router-link to="/">OUR WEDDING</router-link> |
-      <router-link to="/our-story">OUR STORY</router-link> |
-      <router-link to="/wedding-party">WEDDING PARTY</router-link> |
-      <router-link to="/photos">PHOTOS</router-link> |
-      <router-link to="/guest-accommodations">GUEST ACCOMMODATIONS</router-link> |
-      <router-link to="/registry">REGISTRY</router-link> |
-      <router-link to="/rsvp">RSVP</router-link>
+      <v-toolbar-title class="names">Haley & Zach</v-toolbar-title>
+      <template v-slot:extension>
+        <v-tabs>
+          <v-tab to="/">Our Wedding</v-tab>
+          <v-tab to="/our-story">Our Story</v-tab>
+          <v-tab to="/wedding-party">Wedding Party</v-tab>
+          <v-tab to="/photos">Photos</v-tab>
+          <v-tab to="/guest-accommodations">Guest Accommodations</v-tab>
+          <v-tab to="/registry">Registry</v-tab>
+          <v-tab to="/rsvp">RSVP</v-tab>
+        </v-tabs>
+      </template>
     </v-app-bar>
 
     <v-main>
@@ -39,13 +38,18 @@ export default {
   color: #2e2e2e;
 }
 
-.v-toolbar a {
-  color: #2e2e2e !important;
-  text-decoration: none;
+.v-toolbar__content {
+  justify-content: center;
 }
 
-.v-toolbar a.router-link-exact-active {
+.v-tabs-bar__content {
   color: #8f72a2 !important;
+  justify-content: center;
+}
+
+.v-tab {
+  letter-spacing: unset !important;
+  color: #4b4b4b !important;
 }
 
 h1 {
@@ -61,7 +65,8 @@ h2 {
 
 .names {
   font-family: "Aesthete";
-  font-size: 50px;
+  font-size: 50px !important;
+  overflow: unset !important;
 }
 
 @font-face {
