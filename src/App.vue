@@ -2,8 +2,8 @@
   <v-app>
     <v-app-bar
       app
-      color="rgb(255, 255, 255, 0.8)" >
-      <v-toolbar-title class="names">Haley & Zach</v-toolbar-title>
+      flat
+      color="rgb(255, 255, 255, 0.9)">
       <template v-slot:extension>
         <v-tabs>
           <v-tab to="/">Our Wedding</v-tab>
@@ -38,12 +38,21 @@ export default {
   color: #2e2e2e;
 }
 
+.v-main {
+  padding: 60px 0px 0px !important;
+}
+
+.v-app-bar {
+  height: unset !important;
+}
+
 .v-toolbar__content {
-  justify-content: center;
+  height: unset !important;
+  padding: 0 !important;
 }
 
 .v-tabs-bar__content {
-  color: #8f72a2 !important;
+  color: #a4b48c !important;
   justify-content: center;
 }
 
@@ -53,13 +62,14 @@ export default {
 }
 
 .v-tab--active {
-  color: #8f72a2 !important;
+  color: #a4b48c !important;
 }
 
 h1 {
   font-family: "Aesthete";
   font-size: 80px;
   margin-block-start: 0;
+  font-weight: normal;
 }
 
 h2 {
