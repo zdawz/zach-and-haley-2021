@@ -20,6 +20,13 @@
     <v-main>
       <router-view />
     </v-main>
+
+    <v-footer color="white">
+      <v-col class="footer-text">
+        <div class="footer-cursive-font">H + Z</div>
+        <div class="footer-regular-font">08.07.21</div>
+      </v-col>
+    </v-footer>
   </v-app>
 </template>
 
@@ -39,7 +46,7 @@ export default {
 }
 
 .v-main {
-  padding: 60px 0px 0px !important;
+  padding: 48px 0px 0px !important;
 }
 
 .v-app-bar {
@@ -70,6 +77,7 @@ h1 {
   font-size: 80px;
   margin-block-start: 0;
   font-weight: normal;
+  padding-top: 8px;
 }
 
 h2 {
@@ -77,10 +85,25 @@ h2 {
   font-weight: normal;
 }
 
+.footer-cursive-font {
+  font-family: "Aesthete";
+  color: #2e2e2e;
+}
+
+.footer-regular-font {
+  font-family: "AlegreyaSC-Regular";
+  color: #2e2e2e;
+}
+
 .names {
   font-family: "Aesthete";
   font-size: 50px !important;
   overflow: unset !important;
+}
+
+.footer-text {
+  text-align: center;
+  padding: 0 !important;
 }
 
 @font-face {
