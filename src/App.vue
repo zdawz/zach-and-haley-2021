@@ -2,25 +2,31 @@
   <v-app>
     <v-app-bar
       app
-      color="rgb(255, 255, 255, 0.8)" >
-      <div class="d-flex align-center">
-        <div class="names">Haley & Zach</div>
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <router-link to="/">OUR WEDDING</router-link> |
-      <router-link to="/our-story">OUR STORY</router-link> |
-      <router-link to="/wedding-party">WEDDING PARTY</router-link> |
-      <router-link to="/photos">PHOTOS</router-link> |
-      <router-link to="/guest-accommodations">GUEST ACCOMMODATIONS</router-link> |
-      <router-link to="/registry">REGISTRY</router-link> |
-      <router-link to="/rsvp">RSVP</router-link>
+      flat
+      color="rgb(255, 255, 255, 0.9)">
+      <template v-slot:extension>
+        <v-tabs>
+          <v-tab to="/">Our Wedding</v-tab>
+          <v-tab to="/our-story">Our Story</v-tab>
+          <v-tab to="/wedding-party">Wedding Party</v-tab>
+          <v-tab to="/photos">Photos</v-tab>
+          <v-tab to="/guest-accommodations">Guest Accommodations</v-tab>
+          <v-tab to="/registry">Registry</v-tab>
+          <v-tab to="/rsvp">RSVP</v-tab>
+        </v-tabs>
+      </template>
     </v-app-bar>
 
     <v-main>
       <router-view />
     </v-main>
+
+    <v-footer color="white">
+      <v-col class="footer-text">
+        <div class="footer-cursive-font">H + Z</div>
+        <div class="footer-regular-font">08.07.21</div>
+      </v-col>
+    </v-footer>
   </v-app>
 </template>
 
@@ -39,19 +45,38 @@ export default {
   color: #2e2e2e;
 }
 
-.v-toolbar a {
-  color: #2e2e2e !important;
-  text-decoration: none;
+.v-main {
+  padding: 48px 0px 0px !important;
 }
 
-.v-toolbar a.router-link-exact-active {
-  color: #8f72a2 !important;
+.v-app-bar {
+  height: unset !important;
+}
+
+.v-toolbar__content {
+  height: unset !important;
+  padding: 0 !important;
+}
+
+.v-tabs-bar__content {
+  color: #a4b48c !important;
+  justify-content: center;
+}
+
+.v-tab {
+  color: #4b4b4b !important;
+}
+
+.v-tab--active {
+  color: #a4b48c !important;
 }
 
 h1 {
   font-family: "Aesthete";
   font-size: 80px;
   margin-block-start: 0;
+  font-weight: normal;
+  padding-top: 8px;
 }
 
 h2 {
@@ -59,9 +84,30 @@ h2 {
   font-weight: normal;
 }
 
+.footer-cursive-font {
+  font-family: "Aesthete";
+  color: #2e2e2e;
+}
+
+.footer-regular-font {
+  font-family: "AlegreyaSC-Regular";
+  color: #2e2e2e;
+}
+
 .names {
   font-family: "Aesthete";
-  font-size: 50px;
+  font-size: 50px !important;
+  overflow: unset !important;
+}
+
+.footer-text {
+  text-align: center;
+  padding: 0 !important;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
 }
 
 @font-face {
@@ -80,5 +126,11 @@ h2 {
   font-family: "Aesthete";
   src: local("Aesthete"),
        url("./fonts/Aesthete.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSerif";
+  src: local("OpenSerif"),
+       url("./fonts/OpenSerif-Book.ttf") format("truetype");
 }
 </style>
