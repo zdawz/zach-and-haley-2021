@@ -123,4 +123,10 @@ h2 {
   src: local("Aesthete"),
        url("./fonts/Aesthete.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "OpenSerif";
+  src: local("OpenSerif"),
+       url("./fonts/OpenSerif-Book.ttf") format("truetype");
+}
 </style>
