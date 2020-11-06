@@ -64,7 +64,6 @@ export default {
 }
 
 .v-tab {
-  letter-spacing: unset !important;
   color: #4b4b4b !important;
 }
 
@@ -104,6 +103,11 @@ h2 {
 .footer-text {
   text-align: center;
   padding: 0 !important;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
 }
 
 @font-face {
