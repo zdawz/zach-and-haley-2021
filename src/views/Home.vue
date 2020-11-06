@@ -1,13 +1,18 @@
 <template>
   <div>
-    <h1>Our Wedding</h1>
-    <img
-      alt="Zach and Haley"
-      src="../assets/images/DSC05091.jpg"
-      class="image-center" />
+    <div class="image-and-text">
+      <img
+        src="../assets/images/HomePageBanner.jpeg"
+        class="image-center"/>
+      <div class="image-text">
+        <h1>Haley & Zach</h1>
+        <h2>August 7, 2021 ∙ Kasota, MN</h2>
+        <h2># days to go</h2>
+      </div>
+    </div>
+  
+    <h1>The Wedding</h1>
     <div>Saturday, August 7, 2021</div>
-    <div>Kasota, MN</div>
-    <div># Days To Go</div>
   </div>
 </template>
 
@@ -18,10 +23,25 @@ export default {
 </script>
 
 <style scoped>
+.image-and-text {
+  text-align: center;
+  position: relative;
+}
+
 .image-center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 100%;
+}
+
+.image-text {
+  display: block;
+  position: absolute;
+  top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  width: 100%;
 }
 </style>
