@@ -38,6 +38,31 @@
           position="Best Man"
           biography="Brother"
           imageName="Jared.jpeg"/>
+        <WeddingPartyBio 
+          name="Connor Winter"
+          position="Groomsman"
+          biography="College roommate and teammate"
+          imageName="Connor.jpeg"/>
+        <WeddingPartyBio 
+          name="Sam Deyak"
+          position="Groomsman"
+          biography="College roommate and teammate"
+          imageName="Sam.jpeg"/>
+        <WeddingPartyBio 
+          name="Ryan Sklar"
+          position="Groomsman"
+          biography="College roommate and teammate"
+          imageName="Ryan.jpeg"/>
+        <WeddingPartyBio 
+          name="Eli Broman"
+          position="Groomsman"
+          biography="High school friend"
+          imageName="Eli.jpeg"/>
+        <WeddingPartyBio 
+          name="Joey Pesik"
+          position="Groomsman"
+          biography="Brother of the bride"
+          imageName="Joey.jpeg"/>
       </v-layout>
   </div>
 </template>
