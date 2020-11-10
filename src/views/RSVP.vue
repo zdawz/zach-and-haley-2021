@@ -1,28 +1,27 @@
 <template>
   <div>
     <h1>RSVP</h1>
-    <v-btn @click="loadSpreadsheet">Load Spreadsheet</v-btn>
-    <p>{{ spreadsheetTitle }}</p>
-    <v-form v-model="valid">
+    <v-form v-model="valid" @submit.prevent="onSubmit">
       <v-container>
         <v-text-field
           v-model="firstName"
           :rules="nameRules"
           label="First name"
-          required
         ></v-text-field>
         <v-text-field
           v-model="lastName"
           :rules="nameRules"
           label="Last name"
-          required
         ></v-text-field>
         <v-text-field
           v-model="email"
           :rules="emailRules"
           label="E-mail"
-          required
+          validate-on-blur
         ></v-text-field>
+        <v-btn type="submit" :disabled="!valid">
+          Submit
+        </v-btn>
       </v-container>
     </v-form>
   </div>
@@ -41,8 +40,7 @@ export default {
     nameRules: [(v) => !!v || "Name is required"],
     email: "",
     emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => validator.validate(v) || "E-mail must be valid",
+      (v) => (v ? validator.validate(v) || "E-mail must be valid" : true),
     ],
     spreadsheetTitle: null,
   }),
@@ -60,6 +58,9 @@ export default {
       });
       await doc.loadInfo(); // loads document properties and worksheets
       this.spreadsheetTitle = doc.title;
+    },
+    onSubmit() {
+      console.log(this.firstName, this.lastName, this.email);
     },
   },
 };
