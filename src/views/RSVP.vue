@@ -1,22 +1,51 @@
 <template>
   <div>
     <h1>RSVP</h1>
-    <p>This might just be a link in the future</p>
     <v-btn @click="loadSpreadsheet">Load Spreadsheet</v-btn>
     <p>{{ spreadsheetTitle }}</p>
+    <v-form v-model="valid">
+      <v-container>
+        <v-text-field
+          v-model="firstName"
+          :rules="nameRules"
+          label="First name"
+          required
+        ></v-text-field>
+        <v-text-field
+          v-model="lastName"
+          :rules="nameRules"
+          label="Last name"
+          required
+        ></v-text-field>
+        <v-text-field
+          v-model="email"
+          :rules="emailRules"
+          label="E-mail"
+          required
+        ></v-text-field>
+      </v-container>
+    </v-form>
   </div>
 </template>
 
 <script>
 const { GoogleSpreadsheet } = require("google-spreadsheet");
+const validator = require("email-validator");
 
 export default {
   name: "RSVP",
-  data: function() {
-    return {
-      spreadsheetTitle: null,
-    };
-  },
+  data: () => ({
+    valid: false,
+    firstName: "",
+    lastName: "",
+    nameRules: [(v) => !!v || "Name is required"],
+    email: "",
+    emailRules: [
+      (v) => !!v || "E-mail is required",
+      (v) => validator.validate(v) || "E-mail must be valid",
+    ],
+    spreadsheetTitle: null,
+  }),
   methods: {
     async loadSpreadsheet() {
       const doc = new GoogleSpreadsheet(
