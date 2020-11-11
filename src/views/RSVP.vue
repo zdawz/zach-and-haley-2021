@@ -6,12 +6,12 @@
         <v-text-field
           v-model="firstName"
           :rules="nameRules"
-          label="First name"
+          label="First name *"
         ></v-text-field>
         <v-text-field
           v-model="lastName"
           :rules="nameRules"
-          label="Last name"
+          label="Last name *"
         ></v-text-field>
         <v-text-field
           v-model="email"
