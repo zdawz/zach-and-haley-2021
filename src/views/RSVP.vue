@@ -33,19 +33,27 @@ const validator = require("email-validator");
 
 export default {
   name: "RSVP",
-  data: () => ({
-    valid: false,
-    firstName: "",
-    lastName: "",
-    nameRules: [(v) => !!v || "Name is required"],
-    email: "",
-    emailRules: [
-      (v) => (v ? validator.validate(v) || "E-mail must be valid" : true),
-    ],
-    spreadsheetTitle: null,
-  }),
+  data() {
+    return {
+      valid: false,
+      firstName: "",
+      lastName: "",
+      nameRules: [(v) => !!v || "Name is required"],
+      email: "",
+      emailRules: [
+        (v) => (v ? validator.validate(v) || "E-mail must be valid" : true),
+      ],
+      sheet: null,
+      userGroup: null,
+    };
+  },
+  computed: {
+    fullName() {
+      return this.firstName + " " + this.lastName;
+    },
+  },
   methods: {
-    async loadSpreadsheet() {
+    async loadSheet() {
       const doc = new GoogleSpreadsheet(
         process.env.VUE_APP_GOOGLE_SPREADSHEET_ID
       );
@@ -57,11 +65,21 @@ export default {
         ),
       });
       await doc.loadInfo(); // loads document properties and worksheets
-      this.spreadsheetTitle = doc.title;
+      this.sheet = doc.sheetsByIndex[0];
     },
-    onSubmit() {
-      console.log(this.firstName, this.lastName, this.email);
+    async onSubmit() {
+      const rows = await this.sheet.getRows();
+      rows.forEach((row) => {
+        if (row.name === this.fullName) {
+          this.userGroup = row.group;
+          return;
+        }
+      });
+      console.log(this.userGroup);
     },
+  },
+  async created() {
+    await this.loadSheet();
   },
 };
 </script>
