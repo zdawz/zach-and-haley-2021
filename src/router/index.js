@@ -1,9 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import GuestAccommodations from "../views/GuestAccommodations.vue";
+import Details from "../views/Details.vue";
 import Home from "../views/Home.vue";
 import OurStory from "../views/OurStory.vue";
-import Photos from "../views/Photos.vue";
+import Gallery from "../views/Gallery.vue";
 import Registry from "../views/Registry.vue";
 import RSVP from "../views/RSVP";
 import WeddingParty from "../views/WeddingParty.vue";
@@ -27,9 +27,9 @@ const routes = [
     component: WeddingParty,
   },
   {
-    path: "/photos",
-    name: "Photos",
-    component: Photos,
+    path: "/gallery",
+    name: "Gallery",
+    component: Gallery,
   },
   {
     path: "/registry",
@@ -42,9 +42,9 @@ const routes = [
     component: RSVP,
   },
   {
-    path: "/guest-accommodations",
-    name: "Guest Accommodations",
-    component: GuestAccommodations,
+    path: "/details",
+    name: "Details",
+    component: Details,
   },
 ];
 

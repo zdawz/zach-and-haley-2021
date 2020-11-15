@@ -9,8 +9,8 @@
           <v-tab to="/">Our Wedding</v-tab>
           <v-tab to="/our-story">Our Story</v-tab>
           <v-tab to="/wedding-party">Wedding Party</v-tab>
-          <v-tab to="/photos">Photos</v-tab>
-          <v-tab to="/guest-accommodations">Guest Accommodations</v-tab>
+          <v-tab to="/gallery">Gallery</v-tab>
+          <v-tab to="/details">Details</v-tab>
           <v-tab to="/registry">Registry</v-tab>
           <v-tab to="/rsvp">RSVP</v-tab>
         </v-tabs>
