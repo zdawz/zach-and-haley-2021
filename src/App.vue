@@ -82,6 +82,7 @@ h1 {
 h2 {
   font-family: "AlegreyaSC-Regular";
   font-weight: normal;
+  text-transform: uppercase;
 }
 
 .footer-cursive-font {
