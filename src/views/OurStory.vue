@@ -1,13 +1,67 @@
 <template>
-  <div class="our-story-page">
+  <div>
     <div class="image-and-text">
       <img
         src="../assets/images/OurStoryPageBanner.jpeg"
         class="image-center"/>
       <div class="image-text">
-    <h1>Our Story</h1>
-  </div>
-  </div>
+        <h1>Our Story</h1>
+      </div>   
+    </div>                   
+    <v-layout>
+      <v-col>
+        <h2>Eagan</h2>  
+        <div class="our-story-text">
+          Although Haley and Zach both grew up in the same hometown, their paths only crossed a handful times. They 
+          knew of each other since they both swam for Eagan, but beyond that they seldom saw one another. During Haley's
+          senior year of high school, one of Haley's close friends threw a small Super Bowl party. They invited a few 
+          of their guy swimmer friends, and made sure to invite Zach too, since Haley thought he was cute.
+        </div>
+        <h2>Gustavus</h2>
+        <div class="our-story-text">
+          Haley went off to college in the fall of 2015, leaving her high school memories, and Zach, since he was starting
+          his senior year of high school, behind. When Zach toured colleges, he visited Gustavus and loved the experience.
+          Zach decided to attend Gustavus, and little did he know how excited Haley was to hear this news.
+        </div>
+        <div class="our-story-text">
+          In the fall of 2016, Zach arrived at Gustavus and joined the swim team. Both Haley and Zach swam in the distance 
+          group, so they saw each other almost daily at practices. Also, they both studied computer science, so Haley offered 
+          to help Zach with homework if he ever needed it. Zach took her up on this offer a few times. The more time they 
+          spent together, the fonder they grew of one another. They went on their first date one chilly Thursday evening 
+          after practice, and made their relationship official on December 3, 2016.
+        </div>
+        <img
+            src="../assets/images/our-story/ZachAndHaleyFirstDate.jpeg"
+            class="image-center our-story-image"/>
+        <div class="our-story-text">
+          Over the coming months and years, Haley and Zach grew a strong connection and love for one another. 
+          They were each other's biggest cheerleaders in the pool, and best study partners in the classroom. The two 
+          spent their college years not only swimming and studying together, but playing cribbage, going to church and 
+          Proclaim, eating meals in the caf, watching Netflix, walking in the Arb, and so much more.
+        </div>
+        <img
+            src="../assets/images/our-story/ZachAndHaleySwimming.jpeg"
+            class="image-center our-story-image"/>
+        <div class="our-story-text">
+          After college, Haley and Zach spent a lot more time with each other's families. Most of the time 
+          they would have game nights, and they would regularly play Catan, Kan Jam, Spike Ball, and card games. The two 
+          grew closer and closer with each other's families until they were like their own.
+        </div>
+        <h2>Proposal</h2>
+        <div class="our-story-text">
+          On August 9, 2020, Zach took Haley to Fort Snelling State Park for a hike. With each step they took, the ring in 
+          Zach's pocket became looser and looser until it broke free to jingle inside of the box as they walked. Haley was 
+          sure to notice the sound, and realizing what it was, made sure to keep quiet as not to ruin the moment or 
+          surprise. It was a gloomy day and was sprinkling on and off throughout the hike, but the sky cleared as the two 
+          reached a sandy area where the Minnesota and Mississippi rivers converge. While Haley was looking the other way, 
+          Zach got down on one knee. When Haley turned around, Zach asked her to spend the rest of her life with him. Of 
+          course, she said "Yes!" Right where two rivers became one, they committed to making their two lives one with Christ.
+        </div>
+        <img
+            src="../assets/images/our-story/ZachAndHaleyProposal.jpeg"
+            class="image-center our-story-image"/>
+      </v-col>
+    </v-layout>
   </div>
 </template>
 
@@ -40,11 +94,22 @@ export default {
   width: 100%;
 }
 
-.our-story-page span {
+h2 {
+  padding-bottom: 12px;
+}
+
+.our-story-text {
   font-family: "OpenSerif";
   font-size: 15px;
-  width: 75% !important;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 12px;
+  text-align: start !important;
+}
+
+.our-story-image {
+  max-width: 600px;
+  padding-bottom: 12px;
 }
 </style>
