@@ -18,7 +18,7 @@
         <div class="detail">When</div>
         <div class="detail-text">Saturday, August 7, 2021</div>
         <div class="detail-text">4:00 PM - 11:00 PM</div>
-        <v-btn outlined large color="#2e2e2e" to="/guest-accommodations" class="detail-button">Details</v-btn>
+        <v-btn outlined large color="#2e2e2e" to="/details" class="detail-button">Details</v-btn>
       </v-card>
       <v-card flat outlined class="wedding-info-card">
         <div class="detail">Where</div>
