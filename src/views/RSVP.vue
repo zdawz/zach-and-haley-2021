@@ -2,9 +2,9 @@
   <div>
     <h1>RSVP</h1>
     <iframe
-      :src="googleFormUrl"
-      width="100%"
-      height="1080"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdjFrpKYWA0rDM-zD0H9mjLQPH-VOtYN_vNb0XKE5t2CNt8FQ/viewform?embedded=true"
+      width="640"
+      height="725"
       frameborder="0"
       marginheight="0"
       marginwidth="0"
@@ -17,8 +17,5 @@
 <script>
 export default {
   name: "RSVP",
-  data() {
-    return { googleFormUrl: process.env.VUE_APP_GOOGLE_FORM_URL };
-  },
 };
 </script>
