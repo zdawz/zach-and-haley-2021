@@ -7,7 +7,7 @@
       <div class="image-text">
         <h1>Haley & Zach</h1>
         <h2>August 7, 2021 ∙ Kasota, MN</h2>
-        <h2># days to go</h2>
+        <h2>{{ getDayCountToWedding() }}</h2>
       </div>
     </div>
   
@@ -42,6 +42,23 @@ export default {
   methods: {
     openMap() {
       window.open("https://goo.gl/maps/PW9aT47RPc2gPdhe9", "_blank");
+    },
+    getDayCountToWedding() {
+      const todayDate = new Date();
+      const weddingDate = new Date('08/07/2021');
+      const timeDifference = weddingDate.getTime() - todayDate.getTime(); 
+      var days = parseInt(timeDifference / (1000 * 3600 * 24)); 
+
+      if (days > 0) {
+        return days == 1 ? days + " day to go" : days + " days to go";
+      }
+      else if (days == 0) {
+        return "today";
+      }
+      else {
+        days = Math.abs(days);
+        return days == 1 ? days + " day ago" : days + " days ago";
+      }
     }
   },
 };
