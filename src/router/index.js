@@ -18,12 +18,12 @@ const routes = [
   },
   {
     path: "/our-story",
-    name: "Our Story",
+    name: "OurStory",
     component: OurStory,
   },
   {
     path: "/wedding-party",
-    name: "Wedding Party",
+    name: "WeddingParty",
     component: WeddingParty,
   },
   {

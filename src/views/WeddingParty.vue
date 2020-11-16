@@ -71,7 +71,7 @@
 import WeddingPartyBio from "@/components/WeddingPartyBio.vue";
 
 export default {
-  name: 'Wedding Party',
+  name: 'WeddingParty',
   components: {
     WeddingPartyBio,
   },

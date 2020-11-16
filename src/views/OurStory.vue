@@ -67,7 +67,7 @@
 
 <script>
 export default {
-  name: 'Our Story',
+  name: 'OurStory',
 };
 </script>
 
