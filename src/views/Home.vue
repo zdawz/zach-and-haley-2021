@@ -114,7 +114,7 @@ export default {
   width: 280px;
   height: 280px;
   padding: 16px;
-  margin: 16px;
+  margin: 0 16px 32px 16px;
 }
 
 .detail {
