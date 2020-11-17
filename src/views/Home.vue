@@ -33,6 +33,21 @@
         <v-btn outlined large color="#2e2e2e" to="/rsvp" class="detail-button">RSVP</v-btn>
       </v-card>
     </v-layout>
+
+    <v-card flat tile width="100%" color="#a4b48c" class="our-story-card">
+      <v-layout>
+        <v-col class="our-story-card-divider">
+          <v-divider color="white"></v-divider>
+        </v-col>
+        <v-col class="our-story-card-display">
+          <div class="detail our-story-card-text">See how it all started</div>
+          <v-btn outlined large color="white" to="/our-story" class="detail-button our-story-card-button">Our Story</v-btn>
+        </v-col>
+        <v-col class="our-story-card-divider">
+          <v-divider color="white"></v-divider>
+        </v-col>
+      </v-layout>
+    </v-card>
   </div>
 </template>
 
@@ -115,5 +130,27 @@ export default {
 
 .detail-button {
   margin: 24px 16px 16px 16px;
+}
+
+.our-story-card {
+  padding: 16px;
+}
+
+.our-story-card-display {
+  max-width: 328px;
+}
+
+.our-story-card-text {
+  color: white;
+  justify-content: center;
+}
+
+.our-story-card-button {
+  margin: 0;
+}
+
+.our-story-card-divider {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 </style>
