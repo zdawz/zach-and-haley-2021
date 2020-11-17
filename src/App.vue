@@ -22,11 +22,22 @@
       <router-view />
     </v-main>
 
-    <v-footer color="white">
-      <v-col class="footer-text">
-        <div class="footer-cursive-font">H + Z</div>
-        <div class="footer-regular-font">08.07.21</div>
-      </v-col>
+    <v-footer color="white" class="py-3">
+      <div class="footer">
+        <v-row class="footer-row">
+          <v-col class="footer-image">
+            <img :src="require('./assets/images/blackGreeneryLeft.png')" height="32px"/>
+          </v-col>
+          <v-col class="footer-text">
+            <div class="footer-cursive-font">H + Z</div>
+            <div class="footer-regular-font">08.07.21</div>
+          </v-col>
+          <v-col class="footer-image">
+            <img :src="require('./assets/images/blackGreeneryRight.png')" height="32px"/>
+          </v-col>
+        </v-row>
+        <v-row class="footer-message">Made with love by Haley and Zach</v-row>
+      </div>
     </v-footer>
   </v-app>
 </template>
@@ -81,7 +92,6 @@ h1 {
 }
 
 h2 {
-  font-family: "AlegreyaSC-Regular";
   font-weight: normal;
   text-transform: uppercase;
 }
@@ -89,6 +99,16 @@ h2 {
 h3 {
   font-family: "OpenSerif";
   font-weight: normal;
+}
+
+.footer {
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-row {
+  justify-content: center;
 }
 
 .footer-cursive-font {
@@ -101,15 +121,21 @@ h3 {
   color: #2e2e2e;
 }
 
-.names {
-  font-family: "Aesthete";
-  font-size: 50px !important;
-  overflow: unset !important;
-}
-
 .footer-text {
   text-align: center;
   padding: 0 !important;
+  max-width: 64px !important;
+}
+
+.footer-image {
+  max-width: 48px !important;
+  padding: 8px 0 !important;
+}
+
+.footer-message {
+  font-size: 10px;
+  text-transform: uppercase;
+  
 }
 
 .hidden {
