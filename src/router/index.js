@@ -6,6 +6,7 @@ import OurStory from "../views/OurStory.vue";
 import Gallery from "../views/Gallery.vue";
 import Registry from "../views/Registry.vue";
 import RSVP from "../views/RSVP";
+import Travel from "../views/Travel";
 import WeddingParty from "../views/WeddingParty.vue";
 
 Vue.use(VueRouter);
@@ -45,6 +46,11 @@ const routes = [
     path: "/details",
     name: "Details",
     component: Details,
+  },
+  {
+    path: "/travel",
+    name: "Travel",
+    component: Travel,
   },
 ];
 
