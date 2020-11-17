@@ -101,6 +101,10 @@ h3 {
   font-weight: normal;
 }
 
+.v-footer {
+  margin-top: 32px;
+}
+
 .footer {
   flex-wrap: wrap;
   margin-left: auto;
