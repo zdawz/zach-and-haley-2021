@@ -27,7 +27,7 @@ export default {
 
 <style scoped>
 .bio-card {
-    padding-bottom: 48px;
+    padding-bottom: 36px;
 }
 
 .position-text {
