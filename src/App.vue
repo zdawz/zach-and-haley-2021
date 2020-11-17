@@ -86,6 +86,11 @@ h2 {
   text-transform: uppercase;
 }
 
+h3 {
+  font-family: "OpenSerif";
+  font-weight: normal;
+}
+
 .footer-cursive-font {
   font-family: "Aesthete";
   color: #2e2e2e;
