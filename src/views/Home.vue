@@ -56,7 +56,7 @@ export default {
   name: 'Home',
   methods: {
     openMap() {
-      window.open("https://goo.gl/maps/PW9aT47RPc2gPdhe9", "_blank");
+      window.open("https://goo.gl/maps/u7pZJGeKHarSC6YQ8", "_blank");
     },
     getDayCountToWedding() {
       const todayDate = new Date();
