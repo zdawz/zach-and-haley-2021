@@ -12,8 +12,8 @@
       <v-col>
         <h2>Eagan</h2>  
         <div class="our-story-text">
-          Although Haley and Zach both grew up in the same hometown, their paths only crossed a handful times. They 
-          knew of each other since they both swam for Eagan, but beyond that they seldom saw one another. During Haley's
+          Although Haley and Zach both grew up in the same hometown, their paths only crossed a handful of times. Since they
+          both swam for Eagan they knew of each other, but beyond that they seldom saw one another. During Haley's
           senior year of high school, one of Haley's close friends threw a small Super Bowl party. They invited a few 
           of their guy swimmer friends, and made sure to invite Zach too, since Haley thought he was cute.
         </div>
@@ -21,11 +21,11 @@
         <div class="our-story-text">
           Haley went off to college in the fall of 2015, leaving her high school memories, and Zach, since he was starting
           his senior year of high school, behind. When Zach toured colleges, he visited Gustavus and loved the experience.
-          Zach decided to attend Gustavus, and little did he know how excited Haley was to hear this news.
+          Zach decided to attend Gustavus.
         </div>
         <div class="our-story-text">
           In the fall of 2016, Zach arrived at Gustavus and joined the swim team. Both Haley and Zach swam in the distance 
-          group, so they saw each other almost daily at practices. Also, they both studied computer science, so Haley offered 
+          group, so they saw each other almost daily at practices. They also both studied computer science, so Haley offered 
           to help Zach with homework if he ever needed it. Zach took her up on this offer a few times. The more time they 
           spent together, the fonder they grew of one another. They went on their first date one chilly Thursday evening 
           after practice, and made their relationship official on December 3, 2016.
