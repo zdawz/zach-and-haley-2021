@@ -56,7 +56,7 @@
         <WeddingPartyBio 
           name="Eli Broman"
           position="Groomsman"
-          biography="High school friend"
+          biography="High school friend and teammate"
           imageName="Eli.jpeg"/>
         <WeddingPartyBio 
           name="Joey Pesik"
