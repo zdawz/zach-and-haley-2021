@@ -38,8 +38,7 @@ cp .env.example .env.local
 
 ### Variables
 
-| Name                                   | Description                                                     |
-| -------------------------------------- | --------------------------------------------------------------- |
-| `VUE_APP_GOOGLE_SPREADSHEET_ID`        | The ID of the Google spreadsheet used for data                  |
-| `VUE_APP_GOOGLE_SERVICE_ACCOUNT_EMAIL` | The service account email address for Google API authentication |
-| `VUE_APP_GOOGLE_PRIVATE_KEY`           | The private key for the service account                         |
+| Name                            | Description                                     |
+| ------------------------------- | ----------------------------------------------- |
+| `VUE_APP_GOOGLE_SPREADSHEET_ID` | The ID of the Google spreadsheet used for data  |
+| `VUE_APP_GOOGLE_API_KEY`        | The key to gain access to the Google Sheets API |

@@ -6,17 +6,17 @@
         <v-text-field
           v-model="firstName"
           :rules="nameRules"
-          label="First name *"
+          label="First name*"
         ></v-text-field>
         <v-text-field
           v-model="lastName"
           :rules="nameRules"
-          label="Last name *"
+          label="Last name*"
         ></v-text-field>
         <v-text-field
           v-model="email"
           :rules="emailRules"
-          label="E-mail"
+          label="E-mail*"
           validate-on-blur
         ></v-text-field>
         <v-btn type="submit" :disabled="!valid">
@@ -41,7 +41,8 @@ export default {
       nameRules: [(v) => !!v || "Name is required"],
       email: "",
       emailRules: [
-        (v) => (v ? validator.validate(v) || "E-mail must be valid" : true),
+        (v) => !!v || "E-mail is required",
+        (v) => validator.validate(v) || "E-mail must be valid",
       ],
       sheet: null,
       userGroup: null,
@@ -57,13 +58,7 @@ export default {
       const doc = new GoogleSpreadsheet(
         process.env.VUE_APP_GOOGLE_SPREADSHEET_ID
       );
-      await doc.useServiceAccountAuth({
-        client_email: process.env.VUE_APP_GOOGLE_SERVICE_ACCOUNT_EMAIL,
-        private_key: process.env.VUE_APP_GOOGLE_PRIVATE_KEY.replace(
-          /\\n/g,
-          "\n"
-        ),
-      });
+      doc.useApiKey(process.env.VUE_APP_GOOGLE_API_KEY);
       await doc.loadInfo(); // loads document properties and worksheets
       this.sheet = doc.sheetsByIndex[0];
     },
