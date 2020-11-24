@@ -6,16 +6,23 @@
         <v-text-field
           v-model="fullName"
           :rules="nameRules"
-          label="Full name*"
+          label="Full Name*"
         ></v-text-field>
-        <v-text-field
+        <!-- <v-text-field
           v-model="email"
           :rules="emailRules"
           label="E-mail*"
           validate-on-blur
-        ></v-text-field>
+        ></v-text-field> -->
+        <v-alert type="success" v-if="nameSubmitted && userGroup"
+          >Your group number is {{ userGroup }}</v-alert
+        >
+        <v-alert type="error" v-else-if="nameSubmitted"
+          >Oops! We’re having trouble finding your invite. Please try another
+          spelling of your name or contact Zach and Haley</v-alert
+        >
         <v-btn type="submit" :disabled="!valid">
-          Submit
+          Find Your Invitation
         </v-btn>
       </v-container>
     </v-form>
@@ -32,7 +39,7 @@ export default {
     return {
       valid: false,
       fullName: "",
-      nameRules: [(v) => !!v || "Full name is required"],
+      nameRules: [(v) => !!v || "Full Name is required"],
       email: "",
       emailRules: [
         (v) => !!v || "E-mail is required",
@@ -40,6 +47,7 @@ export default {
       ],
       sheet: null,
       userGroup: null,
+      nameSubmitted: false,
     };
   },
   methods: {
@@ -53,13 +61,18 @@ export default {
     },
     async onSubmit() {
       const rows = await this.sheet.getRows();
+      let foundUser = false;
       rows.forEach((row) => {
         if (row.name.toLowerCase() === this.fullName.toLowerCase()) {
+          foundUser = true;
           this.userGroup = row.group;
           return;
         }
       });
-      console.log(this.userGroup);
+      if (!foundUser) {
+        this.userGroup = null;
+      }
+      this.nameSubmitted = true;
     },
   },
   async created() {
