@@ -4,14 +4,9 @@
     <v-form v-model="valid" @submit.prevent="onSubmit">
       <v-container>
         <v-text-field
-          v-model="firstName"
+          v-model="fullName"
           :rules="nameRules"
-          label="First name*"
-        ></v-text-field>
-        <v-text-field
-          v-model="lastName"
-          :rules="nameRules"
-          label="Last name*"
+          label="Full name*"
         ></v-text-field>
         <v-text-field
           v-model="email"
@@ -36,9 +31,8 @@ export default {
   data() {
     return {
       valid: false,
-      firstName: "",
-      lastName: "",
-      nameRules: [(v) => !!v || "Name is required"],
+      fullName: "",
+      nameRules: [(v) => !!v || "Full name is required"],
       email: "",
       emailRules: [
         (v) => !!v || "E-mail is required",
@@ -47,11 +41,6 @@ export default {
       sheet: null,
       userGroup: null,
     };
-  },
-  computed: {
-    fullName() {
-      return this.firstName + " " + this.lastName;
-    },
   },
   methods: {
     async loadSheet() {
@@ -65,7 +54,7 @@ export default {
     async onSubmit() {
       const rows = await this.sheet.getRows();
       rows.forEach((row) => {
-        if (row.name === this.fullName) {
+        if (row.name.toLowerCase() === this.fullName.toLowerCase()) {
           this.userGroup = row.group;
           return;
         }
