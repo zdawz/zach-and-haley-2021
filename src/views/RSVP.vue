@@ -50,6 +50,7 @@
 var { GoogleSpreadsheet } = require("google-spreadsheet");
 var validator = require("email-validator");
 var _ = require("lodash");
+var emailjs = require("emailjs-com");
 
 export default {
   name: "RSVP",
@@ -101,7 +102,29 @@ export default {
       this.nameSubmitted = true;
     },
     onFormSubmit() {
-      console.log("Thanks for your RSVP!");
+      emailjs.init(process.env.VUE_APP_EMAILJS_USER_ID);
+      var templateParams = {
+        responseSubject: `Group ${this.userGroup} has RSVPed to Our Wedding (on behalf of ${this.fullName})`,
+        responseBody: "Attendance information goes here",
+        autoReplySubject: "Thank you for RSVPing",
+        autoReplyBody: "We can't wait for you to join us on our big day!",
+        userEmail: this.email,
+      };
+
+      emailjs
+        .send(
+          process.env.VUE_APP_EMAILJS_SERVICE_ID,
+          process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
+          templateParams
+        )
+        .then(
+          function(response) {
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          function(error) {
+            console.log("FAILED...", error);
+          }
+        );
     },
   },
   async created() {
