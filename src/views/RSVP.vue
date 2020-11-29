@@ -23,6 +23,16 @@
     </v-form>
     <v-form v-else v-model="validForm" @submit.prevent="onFormSubmit">
       <v-container>
+        <v-radio-group
+          v-for="member in groupMembers"
+          :key="member.name"
+          row
+          mandatory
+        >
+          {{ member.name }}
+          <v-radio label="Yes" :value="true"></v-radio>
+          <v-radio label="No" :value="false"></v-radio>
+        </v-radio-group>
         <v-text-field
           v-model="email"
           :rules="emailRules"
@@ -37,8 +47,9 @@
 </template>
 
 <script>
-const { GoogleSpreadsheet } = require("google-spreadsheet");
-const validator = require("email-validator");
+var { GoogleSpreadsheet } = require("google-spreadsheet");
+var validator = require("email-validator");
+var _ = require("lodash");
 
 export default {
   name: "RSVP",
@@ -53,7 +64,7 @@ export default {
         (v) => !!v || "E-mail is required",
         (v) => validator.validate(v) || "E-mail must be valid",
       ],
-      sheet: null,
+      sheetRows: [],
       userGroup: null,
       nameSubmitted: false,
     };
@@ -61,6 +72,9 @@ export default {
   computed: {
     userFound() {
       return this.nameSubmitted && this.userGroup;
+    },
+    groupMembers() {
+      return _.filter(this.sheetRows, ["group", this.userGroup]);
     },
   },
   methods: {
@@ -70,12 +84,11 @@ export default {
       );
       doc.useApiKey(process.env.VUE_APP_GOOGLE_API_KEY);
       await doc.loadInfo(); // loads document properties and worksheets
-      this.sheet = doc.sheetsByIndex[0];
+      this.sheetRows = await doc.sheetsByIndex[0].getRows();
     },
     async onNameSubmit() {
-      const rows = await this.sheet.getRows();
       let foundUser = false;
-      rows.forEach((row) => {
+      this.sheetRows.forEach((row) => {
         if (row.name.toLowerCase() === this.fullName.toLowerCase()) {
           foundUser = true;
           this.userGroup = row.group;
