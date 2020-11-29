@@ -1,28 +1,35 @@
 <template>
   <div>
     <h1>RSVP</h1>
-    <v-form v-model="valid" @submit.prevent="onSubmit">
+    <v-form
+      v-if="!userFound"
+      v-model="validName"
+      @submit.prevent="onNameSubmit"
+    >
       <v-container>
         <v-text-field
           v-model="fullName"
           :rules="nameRules"
           label="Full Name*"
         ></v-text-field>
-        <!-- <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          label="E-mail*"
-          validate-on-blur
-        ></v-text-field> -->
-        <v-alert type="success" v-if="nameSubmitted && userGroup"
-          >Your group number is {{ userGroup }}</v-alert
-        >
-        <v-alert type="error" v-else-if="nameSubmitted"
+        <v-alert type="error" v-if="nameSubmitted"
           >Oops! We’re having trouble finding your invite. Please try another
           spelling of your name or contact Zach and Haley</v-alert
         >
-        <v-btn type="submit" :disabled="!valid">
+        <v-btn type="submit" :disabled="!validName">
           Find Your Invitation
+        </v-btn>
+      </v-container>
+    </v-form>
+    <v-form v-else v-model="validForm" @submit.prevent="onFormSubmit">
+      <v-container>
+        <v-text-field
+          v-model="email"
+          :rules="emailRules"
+          label="E-mail*"
+        ></v-text-field>
+        <v-btn type="submit" :disabled="!validForm">
+          RSVP
         </v-btn>
       </v-container>
     </v-form>
@@ -37,7 +44,8 @@ export default {
   name: "RSVP",
   data() {
     return {
-      valid: false,
+      validName: false,
+      validForm: false,
       fullName: "",
       nameRules: [(v) => !!v || "Full Name is required"],
       email: "",
@@ -50,6 +58,11 @@ export default {
       nameSubmitted: false,
     };
   },
+  computed: {
+    userFound() {
+      return this.nameSubmitted && this.userGroup;
+    },
+  },
   methods: {
     async loadSheet() {
       const doc = new GoogleSpreadsheet(
@@ -59,7 +72,7 @@ export default {
       await doc.loadInfo(); // loads document properties and worksheets
       this.sheet = doc.sheetsByIndex[0];
     },
-    async onSubmit() {
+    async onNameSubmit() {
       const rows = await this.sheet.getRows();
       let foundUser = false;
       rows.forEach((row) => {
@@ -73,6 +86,9 @@ export default {
         this.userGroup = null;
       }
       this.nameSubmitted = true;
+    },
+    onFormSubmit() {
+      console.log("Thanks for your RSVP!");
     },
   },
   async created() {
