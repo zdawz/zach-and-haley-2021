@@ -36,7 +36,8 @@
             <img :src="require('./assets/images/blackGreeneryRight.png')" height="32px"/>
           </v-col>
         </v-row>
-        <v-row class="footer-message">Made with love by Haley and Zach</v-row>
+        <v-row class="footer-hashtag">#DawsonGetBetterThanThis</v-row>
+        <v-row class="footer-message">Coded with love by Haley and Zach</v-row>
       </div>
     </v-footer>
   </v-app>
@@ -139,7 +140,12 @@ h3 {
 .footer-message {
   font-size: 10px;
   text-transform: uppercase;
-  
+  justify-content: center;
+}
+
+.footer-hashtag {
+  font-size: 14px;
+  justify-content: center;
 }
 
 .hidden {
