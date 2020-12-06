@@ -23,16 +23,28 @@
     </v-form>
     <v-form v-else v-model="validForm" @submit.prevent="onFormSubmit">
       <v-container>
-        <v-radio-group
-          v-for="member in groupMembers"
-          :key="member.name"
-          row
-          mandatory
-        >
-          {{ member.name }}
-          <v-radio label="Yes" :value="true"></v-radio>
-          <v-radio label="No" :value="false"></v-radio>
-        </v-radio-group>
+        <v-simple-table>
+          <template v-slot:default>
+            <tbody>
+              <tr v-for="member in members" :key="member.name">
+                <td class="text-left">{{ member.name }}</td>
+                <td>
+                  <v-radio-group v-model="member.attending" row mandatory>
+                    <div class="pr-4">Attending?</div>
+                    <v-radio label="Yes" :value="true"></v-radio>
+                    <v-radio label="No" :value="false"></v-radio>
+                  </v-radio-group>
+                </td>
+                <td>
+                  <v-text-field
+                    v-model="member.dietRestrictions"
+                    label="Diet Restrictions"
+                  ></v-text-field>
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
         <v-text-field
           v-model="email"
           :rules="emailRules"
@@ -66,16 +78,23 @@ export default {
         (v) => validator.validate(v) || "E-mail must be valid",
       ],
       sheetRows: [],
-      userGroup: null,
+      group: null,
       nameSubmitted: false,
     };
   },
   computed: {
     userFound() {
-      return this.nameSubmitted && this.userGroup;
+      return this.nameSubmitted && this.group !== null;
     },
-    groupMembers() {
-      return _.filter(this.sheetRows, ["group", this.userGroup]);
+    members() {
+      // Filter out all rows of data that don't match the active group
+      const groupMembers = _.filter(this.sheetRows, ["group", this.group]);
+      // Transform the data and add new columns
+      return _.map(groupMembers, (member) => ({
+        name: member.name,
+        attending: true,
+        dietRestrictions: "",
+      }));
     },
   },
   methods: {
@@ -85,26 +104,24 @@ export default {
       );
       doc.useApiKey(process.env.VUE_APP_GOOGLE_API_KEY);
       await doc.loadInfo(); // loads document properties and worksheets
-      this.sheetRows = await doc.sheetsByIndex[0].getRows();
+      this.sheetRows = await doc.sheetsByIndex[0].getRows(); // load in the data
     },
     async onNameSubmit() {
-      let foundUser = false;
+      let newGroup = null;
+      // Find if the user is in a group
       this.sheetRows.forEach((row) => {
         if (row.name.toLowerCase() === this.fullName.toLowerCase()) {
-          foundUser = true;
-          this.userGroup = row.group;
+          newGroup = row.group;
           return;
         }
       });
-      if (!foundUser) {
-        this.userGroup = null;
-      }
+      this.group = newGroup; // Set the group. Null if user is not in one
       this.nameSubmitted = true;
     },
     onFormSubmit() {
       emailjs.init(process.env.VUE_APP_EMAILJS_USER_ID);
       var templateParams = {
-        responseSubject: `Group ${this.userGroup} has RSVPed to Our Wedding (on behalf of ${this.fullName})`,
+        responseSubject: `Group ${this.group} has RSVPed to Our Wedding (on behalf of ${this.fullName})`,
         responseBody: "Attendance information goes here",
         autoReplySubject: "Thank you for RSVPing",
         autoReplyBody: "We can't wait for you to join us on our big day!",
