@@ -6,13 +6,11 @@
         cycle
         continuous
         hide-delimiter-background
-        show-arrows-on-hover
-      >
+        show-arrows-on-hover>
         <v-carousel-item v-for="(image, i) in images" :key="i">
           <img
             :src="require('../assets/images/engagement-pictures/' + image)"
-            class="image-center"
-          />
+            class="image-center" />
         </v-carousel-item>
       </v-carousel>
     </v-container>
@@ -25,13 +23,23 @@ export default {
   data() {
     return {
       images: [
-        "DSC05091.jpg",
-        "DSC04567.jpg",
-        "DSC04365.jpg",
         "DSC04258.jpg",
+        "IMG_1757.jpeg",
+        "DSC04365.jpg",
+        "DSC04438.jpg",
+        "DSC04549.jpg",
         "DSC04567.jpg",
+        "DSC04677.jpg",
+        "DSC04742.jpg",
+        "DSC04824.jpg",
+        "DSC04871.jpg",
+        "DSC04955.jpg",
+        "DSC05064.jpg",
+        "IMG_1918.jpeg",
+        "DSC05115.jpg",
         "DSC05147.jpg",
-        "IMG_1870.jpeg",
+        "IMG_1934.jpg",
+        "DSC05280.jpg",
       ],
     };
   },
