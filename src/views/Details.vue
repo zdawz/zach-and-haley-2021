@@ -24,7 +24,7 @@
             <v-col class="detailed-information-card-title">Parking</v-col>
             <v-col class="detailed-information-text">
               There is parking available across the street from the barn.
-              There will be a golf cart available as transportation to and from the ceremony/reception areas for those who need it.
+              There will be a golf cart available as transportation between the two areas for those who need it.
             </v-col>
           </v-row>
           <v-row>
@@ -58,7 +58,7 @@
               <div class="detail-subtitle">4:00 PM</div>
             </v-col>
             <v-divider vertical></v-divider>
-            <v-col>
+            <v-col class="detail-card-column-right">
               <div class="detail-text">The ceremony will be outside, weather pending.</div>
               <div>-</div>
               <div class="detail-text">
@@ -74,10 +74,10 @@
             <v-col class="detail-title-column">
               <div class="detail">Happy Hour</div>
               <div class="detail-subtitle">Saturday, August 7, 2021</div>
-              <div class="detail-subtitle">6:00 PM</div>
+              <div class="detail-subtitle">5:00 PM</div>
             </v-col>
             <v-divider vertical></v-divider>
-            <v-col>
+            <v-col class="detail-card-column-right">
               <div class="detail-text">Drinks, appetizers and yard games.</div>
             </v-col>
           </v-layout>
@@ -87,10 +87,10 @@
             <v-col class="detail-title-column">
               <div class="detail">Dinner & Dancing</div>
               <div class="detail-subtitle">Saturday, August 7, 2021</div>
-              <div class="detail-subtitle">6:30 PM</div>
+              <div class="detail-subtitle">6:00 PM</div>
             </v-col>
             <v-divider vertical></v-divider>
-            <v-col>
+            <v-col class="detail-card-column-right">
               <div class="detail-text">The reception will be inside.</div>
               <div>-</div>
               <div class="detail-text">Dinner, drinks and dancing to follow our ceremony.</div>
@@ -154,11 +154,15 @@ export default {
 .greenery-banner-left {
   max-height: 664px; 
   padding-left: 32px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .greenery-banner-right {
   max-height: 664px; 
   padding-right: 32px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .info-cards {
@@ -185,7 +189,7 @@ export default {
 }
 
 .detail-card {
-  height: 200px; 
+  min-height: 200px; 
   padding: 16px;
 }
 
@@ -203,6 +207,11 @@ export default {
 
 .detail-text {
   font-family: "OpenSerif";
+}
+
+.detail-card-column-right {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .detail-button {
