@@ -23,17 +23,28 @@
     </v-form>
     <v-form v-else v-model="validForm" @submit.prevent="onFormSubmit">
       <v-container>
-        <v-row v-for="member in members" :key="member.name">
-          <v-radio-group v-model="member.attending" row mandatory>
-            {{ member.name }}
-            <v-radio label="Yes" :value="true"></v-radio>
-            <v-radio label="No" :value="false"></v-radio>
-          </v-radio-group>
-          <v-text-field
-            v-model="member.dietRestrictions"
-            label="Diet Restrictions"
-          ></v-text-field>
-        </v-row>
+        <v-simple-table>
+          <template v-slot:default>
+            <tbody>
+              <tr v-for="member in members" :key="member.name">
+                <td class="text-left">{{ member.name }}</td>
+                <td>
+                  <v-radio-group v-model="member.attending" row mandatory>
+                    <div class="pr-4">Attending?</div>
+                    <v-radio label="Yes" :value="true"></v-radio>
+                    <v-radio label="No" :value="false"></v-radio>
+                  </v-radio-group>
+                </td>
+                <td>
+                  <v-text-field
+                    v-model="member.dietRestrictions"
+                    label="Diet Restrictions"
+                  ></v-text-field>
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
         <v-text-field
           v-model="email"
           :rules="emailRules"
