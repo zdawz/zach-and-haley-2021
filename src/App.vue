@@ -102,6 +102,12 @@ h3 {
   font-weight: normal;
 }
 
+h4 {
+  font-family: "OpenSerif";
+  font-weight: normal;
+  font-size: 14px;
+}
+
 .v-footer {
   margin-top: 32px;
 }

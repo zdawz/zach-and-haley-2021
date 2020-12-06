@@ -4,19 +4,23 @@
     <v-form
       v-if="!userFound"
       v-model="validName"
-      @submit.prevent="onNameSubmit"
-    >
+      @submit.prevent="onNameSubmit">
       <v-container>
+        <h3 class="pb-4">Haley Pesik and Zach Dawson's Wedding</h3>
+        <h4 class="pb-4">
+          If you're responding for you and a guest (or your family), you'll be able to RSVP for your entire group.
+        </h4>
         <v-text-field
           v-model="fullName"
           :rules="nameRules"
           label="Full Name*"
-        ></v-text-field>
-        <v-alert type="error" v-if="nameSubmitted"
-          >Oops! We’re having trouble finding your invite. Please try another
-          spelling of your name or contact Zach and Haley</v-alert
-        >
-        <v-btn type="submit" :disabled="!validName">
+          class="pb-2">
+        </v-text-field>
+        <v-alert type="error" v-if="nameSubmitted" max-width="400px" class="alert-text">
+          Oops! We’re having trouble finding your invite. 
+          Please try another spelling of your name or contact Zach and Haley.
+        </v-alert>
+        <v-btn outlined large color="#2e2e2e" type="submit" :disabled="!validName" class="mt-2">
           Find Your Invitation
         </v-btn>
       </v-container>
@@ -38,8 +42,8 @@
                 <td>
                   <v-text-field
                     v-model="member.dietRestrictions"
-                    label="Diet Restrictions"
-                  ></v-text-field>
+                    label="Diet Restrictions">
+                  </v-text-field>
                 </td>
               </tr>
             </tbody>
@@ -48,11 +52,9 @@
         <v-text-field
           v-model="email"
           :rules="emailRules"
-          label="E-mail*"
-        ></v-text-field>
-        <v-btn type="submit" :disabled="!validForm">
-          RSVP
-        </v-btn>
+          label="E-mail*">
+        </v-text-field>
+        <v-btn type="submit" :disabled="!validForm">RSVP</v-btn>
       </v-container>
     </v-form>
   </div>
@@ -158,3 +160,16 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.v-input {
+  max-width: 400px !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alert-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
