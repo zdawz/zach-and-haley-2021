@@ -119,15 +119,24 @@ export default {
       this.nameSubmitted = true;
     },
     onFormSubmit() {
-      emailjs.init(process.env.VUE_APP_EMAILJS_USER_ID);
+      /* Convert the form JSON to CSV */
+      // Use the first response to choose the keys and the order
+      const memberHeaders = Object.keys(this.members[0]);
+      // Build the header
+      let csv = memberHeaders.join(",") + "<br/>";
+      // Add the rows
+      this.members.forEach(function(obj) {
+        csv += memberHeaders.map((k) => obj[k]).join(",") + "<br/>";
+      });
+      /* Send the form data back to us and send an auto-reply to the user */
       var templateParams = {
-        responseSubject: `Group ${this.group} has RSVPed to Our Wedding (on behalf of ${this.fullName})`,
-        responseBody: "Attendance information goes here",
+        to: this.email,
+        subject: `Group ${this.group} has RSVPed to Our Wedding (on behalf of ${this.fullName})`,
+        body: csv,
         autoReplySubject: "Thank you for RSVPing",
         autoReplyBody: "We can't wait for you to join us on our big day!",
-        userEmail: this.email,
       };
-
+      emailjs.init(process.env.VUE_APP_EMAILJS_USER_ID);
       emailjs
         .send(
           process.env.VUE_APP_EMAILJS_SERVICE_ID,
