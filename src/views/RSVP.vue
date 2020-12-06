@@ -30,8 +30,8 @@
             <v-radio label="No" :value="false"></v-radio>
           </v-radio-group>
           <v-text-field
-            v-model="member.allergies"
-            label="Allergies"
+            v-model="member.dietRestrictions"
+            label="Diet Restrictions"
           ></v-text-field>
         </v-row>
         <v-text-field
@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     userFound() {
-      return this.nameSubmitted && this.group;
+      return this.nameSubmitted && this.group !== null;
     },
     members() {
       // Filter out all rows of data that don't match the active group
@@ -82,7 +82,7 @@ export default {
       return _.map(groupMembers, (member) => ({
         name: member.name,
         attending: true,
-        allergies: "",
+        dietRestrictions: "",
       }));
     },
   },
