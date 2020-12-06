@@ -78,7 +78,7 @@
             </v-col>
             <v-divider vertical></v-divider>
             <v-col class="detail-card-column-right">
-              <div class="detail-text">Drinks, appetizers and yard games.</div>
+              <div class="detail-text">Drinks, appetizers and yard games on the outdoor patio.</div>
             </v-col>
           </v-layout>
         </v-card>
@@ -91,7 +91,7 @@
             </v-col>
             <v-divider vertical></v-divider>
             <v-col class="detail-card-column-right">
-              <div class="detail-text">The reception will be inside.</div>
+              <div class="detail-text">The reception will be inside the barn.</div>
               <div>-</div>
               <div class="detail-text">Dinner, drinks and dancing to follow our ceremony.</div>
             </v-col>
