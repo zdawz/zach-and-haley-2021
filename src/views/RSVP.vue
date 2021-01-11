@@ -4,23 +4,38 @@
     <v-form
       v-if="!userFound"
       v-model="validName"
-      @submit.prevent="onNameSubmit">
+      @submit.prevent="onNameSubmit"
+    >
       <v-container>
         <h3 class="pb-4">Haley Pesik and Zach Dawson's Wedding</h3>
         <h4 class="pb-4">
-          If you're responding for you and a guest (or your family), you'll be able to RSVP for your entire group.
+          If you're responding for you and a guest (or your family), you'll be
+          able to RSVP for your entire group.
         </h4>
         <v-text-field
           v-model="fullName"
           :rules="nameRules"
           label="Full Name*"
-          class="pb-2">
+          class="pb-2"
+        >
         </v-text-field>
-        <v-alert type="error" v-if="nameSubmitted" max-width="400px" class="alert-text">
-          Oops! We’re having trouble finding your invite. 
-          Please try another spelling of your name or contact Zach and Haley.
+        <v-alert
+          type="error"
+          v-if="nameSubmitted"
+          max-width="400px"
+          class="alert-text"
+        >
+          Oops! We’re having trouble finding your invite. Please try another
+          spelling of your name or contact Zach and Haley.
         </v-alert>
-        <v-btn outlined large color="#2e2e2e" type="submit" :disabled="!validName" class="mt-2">
+        <v-btn
+          outlined
+          large
+          color="#2e2e2e"
+          type="submit"
+          :disabled="!validName"
+          class="mt-2"
+        >
           Find Your Invitation
         </v-btn>
       </v-container>
@@ -31,18 +46,27 @@
           <template v-slot:default>
             <tbody>
               <tr v-for="member in members" :key="member.name">
-                <td class="text-left">{{ member.name }}</td>
+                <v-text-field
+                  v-if="!member.name"
+                  v-model="member.name"
+                  label="Guest"
+                >
+                </v-text-field>
+                <td v-else class="text-left">
+                  {{ member.name }}
+                </td>
                 <td>
                   <v-radio-group v-model="member.attending" row mandatory>
                     <div class="pr-4">Attending?</div>
-                    <v-radio label="Yes" :value="true"></v-radio>
-                    <v-radio label="No" :value="false"></v-radio>
+                    <v-radio label="Yes" :value="'Y'"></v-radio>
+                    <v-radio label="No" :value="'N'"></v-radio>
                   </v-radio-group>
                 </td>
                 <td>
                   <v-text-field
                     v-model="member.dietRestrictions"
-                    label="Diet Restrictions">
+                    label="Diet Restrictions"
+                  >
                   </v-text-field>
                 </td>
               </tr>
@@ -52,7 +76,8 @@
         <v-text-field
           v-model="email"
           :rules="emailRules"
-          label="E-mail*">
+          label="Email for RSVP verification"
+        >
         </v-text-field>
         <v-btn type="submit" :disabled="!validForm">RSVP</v-btn>
       </v-container>
@@ -75,10 +100,7 @@ export default {
       fullName: "",
       nameRules: [(v) => !!v || "Full Name is required"],
       email: "",
-      emailRules: [
-        (v) => !!v || "E-mail is required",
-        (v) => validator.validate(v) || "E-mail must be valid",
-      ],
+      emailRules: [(v) => !v || validator.validate(v) || "Email must be valid"],
       sheetRows: [],
       group: null,
       nameSubmitted: false,
@@ -94,8 +116,15 @@ export default {
       // Transform the data and add new columns
       return _.map(groupMembers, (member) => ({
         name: member.name,
-        attending: true,
-        dietRestrictions: "",
+        attending:
+          member.name === ""
+            ? "N"
+            : member.attending === ""
+            ? "Y"
+            : member.attending,
+        dietRestrictions: member.dietRestrictions
+          ? member.dietRestrictions
+          : "",
       }));
     },
   },
@@ -112,7 +141,10 @@ export default {
       let newGroup = null;
       // Find if the user is in a group
       this.sheetRows.forEach((row) => {
-        if (row.name.toLowerCase() === this.fullName.toLowerCase()) {
+        if (
+          row.name &&
+          row.name.toLowerCase() === this.fullName.toLowerCase()
+        ) {
           newGroup = row.group;
           return;
         }
