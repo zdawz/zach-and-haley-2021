@@ -79,7 +79,37 @@
           label="Email for RSVP verification"
         >
         </v-text-field>
-        <v-btn type="submit" :disabled="!validForm">RSVP</v-btn>
+        <div v-if="formSubmitted">
+          <v-alert
+            type="error"
+            v-if="!responseSaved"
+            max-width="400px"
+            class="alert-text"
+          >
+            Oops! Something went wrong when trying to save your response. Please
+            try again or contact Zach and Haley if this error persists.
+          </v-alert>
+          <v-alert
+            type="error"
+            v-else-if="email && !emailSent"
+            max-width="400px"
+            class="alert-text"
+          >
+            Oops! Something went wrong when trying to email you a confirmation.
+            Please try again or contact Zach and Haley if this error persists.
+          </v-alert>
+          <v-alert type="success" v-else max-width="400px" class="alert-text">
+            Thank you for your RSVP! If you provided an email address, a
+            confirmation has been sent to you.
+          </v-alert>
+        </div>
+        <v-btn
+          type="submit"
+          :loading="formSubmitLoading"
+          :disabled="!validForm"
+        >
+          RSVP
+        </v-btn>
       </v-container>
     </v-form>
   </div>
@@ -104,6 +134,10 @@ export default {
       sheetRows: [],
       group: null,
       nameSubmitted: false,
+      formSubmitted: false,
+      formSubmitLoading: false,
+      responseSaved: false,
+      emailSent: false,
     };
   },
   computed: {
@@ -142,43 +176,63 @@ export default {
       this.group = newGroup; // Set the group. Null if user is not in one
       this.nameSubmitted = true;
     },
-    onFormSubmit() {
+    async onFormSubmit() {
+      this.formSubmitted = false;
+      this.formSubmitLoading = true;
+      this.responseSaved = false;
+      this.emailSent = false;
+
       // Save changed rows
-      _.each(this.groupMembers, async (member) => await member.save());
+      try {
+        _.each(this.groupMembers, async (member) => await member.save());
+        console.log("Response saved!");
+        this.responseSaved = true;
+      } catch (error) {
+        console.log("Response save failed...", error);
+      }
 
-      // Convert the form JSON to CSV
-      // Use the first response to choose the keys and the order
-      const memberHeaders = Object.keys(this.groupMembers[0]);
-      // Build the header
-      let csv = memberHeaders.join(",") + "<br/>";
-      // Add the rows
-      this.groupMembers.forEach(function(obj) {
-        csv += memberHeaders.map((k) => obj[k]).join(",") + "<br/>";
-      });
+      if (this.responseSaved) {
+        // Convert the form JSON to CSV
+        // Use the first response to choose the keys and the order
+        const memberHeaders = Object.keys(this.groupMembers[0]);
+        // Build the header
+        let csv = memberHeaders.join(",") + "<br/>";
+        // Add the rows
+        this.groupMembers.forEach(function(obj) {
+          csv += memberHeaders.map((k) => obj[k]).join(",") + "<br/>";
+        });
 
-      // Send the form data back to us and send an auto-reply to the user
-      var templateParams = {
-        to: this.email,
-        subject: `Group ${this.group} has RSVPed to Our Wedding (on behalf of ${this.fullName})`,
-        body: csv,
-        autoReplySubject: "Thank you for RSVPing",
-        autoReplyBody: "We can't wait for you to join us on our big day!",
-      };
-      emailjs.init(process.env.VUE_APP_EMAILJS_USER_ID);
-      emailjs
-        .send(
-          process.env.VUE_APP_EMAILJS_SERVICE_ID,
-          process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
-          templateParams
-        )
-        .then(
-          function(response) {
-            console.log("SUCCESS!", response.status, response.text);
-          },
-          function(error) {
-            console.log("FAILED...", error);
-          }
-        );
+        // Send the form data back to us and send an auto-reply to the user
+        var templateParams = {
+          to: this.email,
+          subject: `Group ${this.group} has RSVPed to Our Wedding (on behalf of ${this.fullName})`,
+          body: csv,
+          autoReplySubject: "Thank you for RSVPing",
+          autoReplyBody: "We can't wait for you to join us on our big day!",
+        };
+        emailjs.init(process.env.VUE_APP_EMAILJS_USER_ID);
+        let success = false;
+        await emailjs
+          .send(
+            process.env.VUE_APP_EMAILJS_SERVICE_ID,
+            process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
+            templateParams
+          )
+          .then(
+            (response) => {
+              console.log("Email sent!", response.status, response.text);
+              success = true;
+            },
+            (error) => {
+              console.log("Email failed...", error);
+            }
+          );
+        this.emailSent = success;
+      }
+
+      // Update state variables
+      this.formSubmitted = true;
+      this.formSubmitLoading = false;
     },
   },
   async created() {
