@@ -144,7 +144,7 @@ export default {
     },
     onFormSubmit() {
       // Save changed rows
-      _.each(this.groupMembers, (member) => member.save());
+      _.each(this.groupMembers, async (member) => await member.save());
 
       // Convert the form JSON to CSV
       // Use the first response to choose the keys and the order
