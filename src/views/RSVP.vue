@@ -45,7 +45,7 @@
         <v-simple-table>
           <template v-slot:default>
             <tbody>
-              <tr v-for="member in members" :key="member.name">
+              <tr v-for="member in groupMembers" :key="member.name">
                 <v-text-field
                   v-if="!member.name"
                   v-model="member.name"
@@ -110,22 +110,9 @@ export default {
     userFound() {
       return this.nameSubmitted && this.group !== null;
     },
-    members() {
+    groupMembers() {
       // Filter out all rows of data that don't match the active group
-      const groupMembers = _.filter(this.sheetRows, ["group", this.group]);
-      // Transform the data and add new columns
-      return _.map(groupMembers, (member) => ({
-        name: member.name,
-        attending:
-          member.name === ""
-            ? "N"
-            : member.attending === ""
-            ? "Y"
-            : member.attending,
-        dietRestrictions: member.dietRestrictions
-          ? member.dietRestrictions
-          : "",
-      }));
+      return _.filter(this.sheetRows, ["group", this.group]);
     },
   },
   methods: {
@@ -156,16 +143,20 @@ export default {
       this.nameSubmitted = true;
     },
     onFormSubmit() {
-      /* Convert the form JSON to CSV */
+      // Save changed rows
+      _.each(this.groupMembers, (member) => member.save());
+
+      // Convert the form JSON to CSV
       // Use the first response to choose the keys and the order
-      const memberHeaders = Object.keys(this.members[0]);
+      const memberHeaders = Object.keys(this.groupMembers[0]);
       // Build the header
       let csv = memberHeaders.join(",") + "<br/>";
       // Add the rows
-      this.members.forEach(function(obj) {
+      this.groupMembers.forEach(function(obj) {
         csv += memberHeaders.map((k) => obj[k]).join(",") + "<br/>";
       });
-      /* Send the form data back to us and send an auto-reply to the user */
+
+      // Send the form data back to us and send an auto-reply to the user
       var templateParams = {
         to: this.email,
         subject: `Group ${this.group} has RSVPed to Our Wedding (on behalf of ${this.fullName})`,
