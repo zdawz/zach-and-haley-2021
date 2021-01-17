@@ -133,7 +133,10 @@ export default {
       const doc = new GoogleSpreadsheet(
         process.env.VUE_APP_GOOGLE_SPREADSHEET_ID
       );
-      doc.useApiKey(process.env.VUE_APP_GOOGLE_API_KEY);
+      await doc.useServiceAccountAuth({
+        client_email: process.env.VUE_APP_GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        private_key: process.env.VUE_APP_GOOGLE_PRIVATE_KEY,
+      });
       await doc.loadInfo(); // loads document properties and worksheets
       this.sheetRows = await doc.sheetsByIndex[0].getRows(); // load in the data
     },
