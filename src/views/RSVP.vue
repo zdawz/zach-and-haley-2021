@@ -156,10 +156,10 @@ export default {
       );
       await doc.useServiceAccountAuth({
         client_email: process.env.VUE_APP_GOOGLE_SERVICE_ACCOUNT_EMAIL,
-        private_key: process.env.VUE_APP_GOOGLE_PRIVATE_KEY,
+        private_key: atob(process.env.VUE_APP_GOOGLE_PRIVATE_KEY), // Decode from Base64
       });
-      await doc.loadInfo(); // loads document properties and worksheets
-      this.sheetRows = await doc.sheetsByIndex[0].getRows(); // load in the data
+      await doc.loadInfo(); // Loads document properties and worksheets
+      this.sheetRows = await doc.sheetsByIndex[0].getRows(); // Load in the data
     },
     async onNameSubmit() {
       let newGroup = null;
