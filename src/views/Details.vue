@@ -130,10 +130,10 @@ export default {
 
 .detailed-information-card-title {
   font-family: "Aesthete";
-  font-size: 40px !important;
+  font-size: 50px !important;
   overflow: unset !important;
   text-align: end;
-  max-width: 175px;
+  max-width: 185px;
 }
 
 .detailed-information-text {
