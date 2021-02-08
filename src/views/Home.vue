@@ -5,7 +5,7 @@
         src="../assets/images/HomePageBanner.jpeg"
         class="image-center"/>
       <div class="image-text">
-        <h1>Haley & Zach</h1>
+        <h1>Zach & Haley</h1>
         <h2>August 7, 2021 ∙ Kasota, MN</h2>
         <h2>{{ getDayCountToWedding() }}</h2>
       </div>

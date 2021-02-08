@@ -7,7 +7,7 @@
       @submit.prevent="onNameSubmit"
     >
       <v-container>
-        <h3 class="pb-4">Haley Pesik and Zach Dawson's Wedding</h3>
+        <h3 class="pb-4">The Wedding of Zach Dawson and Haley Pesik</h3>
         <h4 class="pb-4">
           If you're responding for you and a guest (or your family), you'll be
           able to RSVP for your entire group.
