@@ -193,7 +193,9 @@ export default {
       if (this.responseSaved) {
         // Convert the form JSON to CSV
         // Use the first response to choose the keys and the order
-        const memberHeaders = Object.keys(this.groupMembers[0]);
+        const memberHeaders = Object.keys(this.groupMembers[0]).filter(
+          (key) => !key.startsWith("_") // Remove keys added by google-spreadsheet
+        );
         // Build the header
         let csv = memberHeaders.join(",") + "<br/>";
         // Add the rows
