@@ -205,11 +205,10 @@ export default {
 
         // Send the form data back to us and send an auto-reply to the user
         var templateParams = {
-          subject: `Group ${this.group} has RSVPed to Our Wedding (on behalf of ${this.fullName})`,
-          body: csv,
+          group: this.group,
+          name: this.fullName,
+          responseData: csv,
           autoReplyEmail: this.email,
-          autoReplySubject: "Thank you for RSVPing",
-          autoReplyBody: "We can't wait for you to join us on our big day!",
         };
         emailjs.init(process.env.VUE_APP_EMAILJS_USER_ID);
         let success = false;
