@@ -4,7 +4,8 @@
     <v-form
       v-if="!userFound"
       v-model="validName"
-      @submit.prevent="onNameSubmit">
+      @submit.prevent="onNameSubmit"
+    >
       <v-container>
         <h3 class="pb-4">The Wedding of Zach Dawson and Haley Pesik</h3>
         <h4 class="pb-4">
@@ -15,13 +16,15 @@
           v-model="fullName"
           :rules="nameRules"
           label="Full Name*"
-          class="pb-2">
+          class="pb-2"
+        >
         </v-text-field>
         <v-alert
           type="error"
           v-if="nameSubmitted"
           max-width="400px"
-          class="alert-text">
+          class="alert-text"
+        >
           Oops! We’re having trouble finding your invite. Please try another
           spelling of your name or contact Zach and Haley.
         </v-alert>
@@ -31,7 +34,8 @@
           color="#2e2e2e"
           type="submit"
           :disabled="!validName"
-          class="mt-2">
+          class="mt-2"
+        >
           Find Your Invitation
         </v-btn>
       </v-container>
@@ -45,7 +49,8 @@
                 <v-text-field
                   v-if="!member.name"
                   v-model="member.name"
-                  label="Guest">
+                  label="Guest"
+                >
                 </v-text-field>
                 <td v-else class="text-left">
                   {{ member.name }}
@@ -60,7 +65,8 @@
                 <td>
                   <v-text-field
                     v-model="member.dietRestrictions"
-                    label="Diet Restrictions">
+                    label="Diet Restrictions"
+                  >
                   </v-text-field>
                 </td>
               </tr>
@@ -70,14 +76,16 @@
         <v-text-field
           v-model="email"
           :rules="emailRules"
-          label="Email for RSVP verification">
+          label="Email for RSVP verification"
+        >
         </v-text-field>
         <div v-if="formSubmitted">
           <v-alert
             type="error"
             v-if="!responseSaved"
             max-width="400px"
-            class="alert-text">
+            class="alert-text"
+          >
             Oops! Something went wrong when trying to save your response. Please
             try again or contact Zach and Haley if this error persists.
           </v-alert>
@@ -85,7 +93,8 @@
             type="error"
             v-else-if="email && !emailSent"
             max-width="400px"
-            class="alert-text">
+            class="alert-text"
+          >
             Oops! Something went wrong when trying to email you a confirmation.
             Please try again or contact Zach and Haley if this error persists.
           </v-alert>
@@ -97,7 +106,8 @@
         <v-btn
           type="submit"
           :loading="formSubmitLoading"
-          :disabled="!validForm">
+          :disabled="!validForm"
+        >
           RSVP
         </v-btn>
       </v-container>
@@ -108,7 +118,6 @@
 <script>
 var { GoogleSpreadsheet } = require("google-spreadsheet");
 var validator = require("email-validator");
-var _ = require("lodash");
 var emailjs = require("emailjs-com");
 
 export default {
@@ -136,7 +145,7 @@ export default {
     },
     groupMembers() {
       // Filter out all rows of data that don't match the active group
-      return _.filter(this.sheetRows, ["group", this.group]);
+      return this.sheetRows.filter((row) => row.group === this.group);
     },
   },
   methods: {
@@ -174,7 +183,7 @@ export default {
 
       // Save changed rows
       try {
-        _.each(this.groupMembers, async (member) => await member.save());
+        this.groupMembers.forEach(async (member) => await member.save());
         console.log("Response saved!");
         this.responseSaved = true;
       } catch (error) {
