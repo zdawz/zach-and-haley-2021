@@ -33,7 +33,6 @@ export default {
 </script>
 
 <style scoped>
-
 .registry-cards {
   flex-wrap: wrap;
   max-width: 75%;
