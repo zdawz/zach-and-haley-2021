@@ -1,26 +1,44 @@
 <template>
   <div>
     <h1>Registry</h1>
-    <h3>Your love, laughter, and company on our big day is the greatest gift of all.</h3>
-    <h3>However, should you wish to help us celebrate with a gift, please choose from our registry.</h3>
+    <h3>
+      Your love, laughter, and company on our big day is the greatest gift of
+      all.
+    </h3>
+    <h3>
+      However, should you wish to help us celebrate with a gift, please choose
+      from our registry.
+    </h3>
 
     <v-layout class="registry-cards">
       <v-card flat outlined class="registry-card">
         <v-avatar rounded size="200">
-            <img src="../assets/images/registry/amazon.jpeg"/>
+          <img src="../assets/images/registry/amazon.jpeg" />
         </v-avatar>
-        <v-btn outlined large color="#2e2e2e" class="registry-button">See registry</v-btn>
+        <v-btn
+          outlined
+          large
+          color="#2e2e2e"
+          class="registry-button"
+          href="https://www.amazon.com/wedding/zach-dawson-haley-pesik-kasota-august-2021/registry/2Z59QTTOH359J"
+          target="_blank"
+        >
+          See registry
+        </v-btn>
       </v-card>
       <v-card flat outlined class="registry-card">
         <v-avatar rounded size="200">
-            <img src="../assets/images/registry/bed-bath-and-beyond.jpg"/>
+          <img src="../assets/images/registry/bed-bath-and-beyond.jpg" />
         </v-avatar>
-        <v-btn outlined large color="#2e2e2e" class="registry-button">See registry</v-btn>
+        <v-btn outlined large color="#2e2e2e" class="registry-button">
+          See registry
+        </v-btn>
       </v-card>
       <v-card flat outlined class="registry-card">
-        <v-avatar rounded size="200">
-        </v-avatar>
-        <v-btn outlined large color="#2e2e2e" class="registry-button">Honeymoon Fund</v-btn>
+        <v-avatar rounded size="200"> </v-avatar>
+        <v-btn outlined large color="#2e2e2e" class="registry-button">
+          Honeymoon Fund
+        </v-btn>
       </v-card>
     </v-layout>
   </div>
@@ -28,7 +46,7 @@
 
 <script>
 export default {
-  name: 'Registry',
+  name: "Registry",
 };
 </script>
 
