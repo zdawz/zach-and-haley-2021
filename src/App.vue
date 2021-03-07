@@ -1,11 +1,10 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      flat
-      color="rgb(255, 255, 255, 0.9)">
+    <v-app-bar app flat color="rgb(255, 255, 255, 0.9)">
       <template v-slot:extension>
-        <v-tabs>
+        <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = true" />
+        <!-- <v-toolbar-title>Title</v-toolbar-title> -->
+        <v-tabs class="hidden-sm-and-down">
           <v-tab to="/">Our Wedding</v-tab>
           <v-tab to="/our-story">Our Story</v-tab>
           <v-tab to="/wedding-party">Wedding Party</v-tab>
@@ -26,14 +25,20 @@
       <div class="footer">
         <v-row class="footer-row">
           <v-col class="footer-image">
-            <img :src="require('./assets/images/blackGreeneryLeft.png')" height="32px"/>
+            <img
+              :src="require('./assets/images/blackGreeneryLeft.png')"
+              height="32px"
+            />
           </v-col>
           <v-col class="footer-text">
             <div class="footer-cursive-font">Z + H</div>
             <div class="footer-regular-font">08.07.21</div>
           </v-col>
           <v-col class="footer-image">
-            <img :src="require('./assets/images/blackGreeneryRight.png')" height="32px"/>
+            <img
+              :src="require('./assets/images/blackGreeneryRight.png')"
+              height="32px"
+            />
           </v-col>
         </v-row>
         <v-row class="footer-hashtag">#DawsonGetBetterThanThis</v-row>
@@ -45,7 +50,10 @@
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return { drawer: false };
+  },
 };
 </script>
 
@@ -162,24 +170,22 @@ h4 {
 @font-face {
   font-family: "AlegreyaSC-Regular";
   src: local("AlegreyaSC-Regular"),
-       url("./fonts/AlegreyaSC-Regular.ttf") format("truetype");
+    url("./fonts/AlegreyaSC-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "AlegreyaSC-Italic";
   src: local("AlegreyaSC-Italic"),
-       url("./fonts/AlegreyaSC-Italic.ttf") format("truetype");
+    url("./fonts/AlegreyaSC-Italic.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Aesthete";
-  src: local("Aesthete"),
-       url("./fonts/Aesthete.ttf") format("truetype");
+  src: local("Aesthete"), url("./fonts/Aesthete.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "OpenSerif";
-  src: local("OpenSerif"),
-       url("./fonts/OpenSerif-Book.ttf") format("truetype");
+  src: local("OpenSerif"), url("./fonts/OpenSerif-Book.ttf") format("truetype");
 }
 </style>
