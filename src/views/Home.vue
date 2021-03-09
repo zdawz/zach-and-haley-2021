@@ -11,14 +11,13 @@
       </div>
     </div>
 
-    <div class="hidden-md-and-up">
+    <div class="hidden-md-and-up small-title-padding">
       <h1>Zach & Haley</h1>
       <h2>August 7, 2021 ∙ Kasota, MN</h2>
       <h2>{{ getDayCountToWedding() }}</h2>
-      <v-divider class="our-story-title-divider"></v-divider>
     </div>
 
-    <h1>The Wedding</h1>
+    <h1 class="hidden-sm-and-down">The Wedding</h1>
 
     <v-layout class="wedding-info-cards">
       <v-card flat outlined class="wedding-info-card">
@@ -163,7 +162,8 @@ export default {
   margin-bottom: auto;
 }
 
-.our-story-title-divider {
-  margin: 24px 24px 16px 24px;
+.small-title-padding {
+  padding-top: 16px;
+  padding-bottom: 24px;
 }
 </style>
