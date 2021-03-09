@@ -3,19 +3,24 @@
     <v-app-bar app flat color="rgb(255, 255, 255, 0.9)">
       <template v-slot:extension>
         <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = true" />
-        <!-- <v-toolbar-title>Title</v-toolbar-title> -->
+        <v-toolbar-title class="hidden-md-and-up navigation-item">{{ pageTitle }}</v-toolbar-title>
         <v-tabs class="hidden-sm-and-down">
-          <v-tab to="/">Our Wedding</v-tab>
-          <v-tab to="/our-story">Our Story</v-tab>
-          <v-tab to="/wedding-party">Wedding Party</v-tab>
-          <v-tab to="/gallery">Gallery</v-tab>
-          <v-tab to="/details">Details</v-tab>
-          <v-tab to="/travel">Travel</v-tab>
-          <v-tab to="/registry">Registry</v-tab>
-          <v-tab to="/rsvp">RSVP</v-tab>
+          <v-tab v-for="(item,i) in items" :key="i" :to="item.route">{{ item.title }}</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
+
+    <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-list>
+        <v-list-item-group>
+          <v-list-item v-for="(item, i) in items" :key="i" @click="chooseNavigationItem(item)">
+            <v-list-item-content class="navigation-item">
+              <v-list-item-title v-text="item.title"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
 
     <v-main>
       <router-view />
@@ -27,8 +32,7 @@
           <v-col class="footer-image">
             <img
               :src="require('./assets/images/blackGreeneryLeft.png')"
-              height="32px"
-            />
+              height="32px" />
           </v-col>
           <v-col class="footer-text">
             <div class="footer-cursive-font">Z + H</div>
@@ -37,8 +41,7 @@
           <v-col class="footer-image">
             <img
               :src="require('./assets/images/blackGreeneryRight.png')"
-              height="32px"
-            />
+              height="32px" />
           </v-col>
         </v-row>
         <v-row class="footer-hashtag">#DawsonGetBetterThanThis</v-row>
@@ -49,11 +52,55 @@
 </template>
 
 <script>
+import router from './router';
 export default {
   name: "App",
   data() {
-    return { drawer: false };
+    return { 
+      drawer: false,
+      pageTitle: "Our Wedding",
+      items: [
+        {
+          title: "Our Wedding",
+          route: "/",
+        },
+        {
+          title: "Our Story",
+          route: "/our-story",
+        },
+        {
+          title: "Wedding Party",
+          route: "/wedding-party",
+        },
+        {
+          title: "Gallery",
+          route: "/gallery",
+        },
+        {
+          title: "Details",
+          route: "/details",
+        },
+        {
+          title: "Travel",
+          route: "/travel",
+        },
+        {
+          title: "Registry",
+          route: "/registry",
+        },
+        {
+          title: "RSVP",
+          route: "/rsvp",
+        },
+      ],
+    };
   },
+  methods: {
+    chooseNavigationItem(item) {
+      router.push({path: item.route});
+      this.pageTitle = item.title;
+    }
+  }
 };
 </script>
 
@@ -162,9 +209,9 @@ h4 {
   justify-content: center;
 }
 
-.hidden {
-  display: none !important;
-  visibility: hidden !important;
+.navigation-item {
+  color: #4b4b4b !important;
+  text-transform: uppercase;
 }
 
 @font-face {
