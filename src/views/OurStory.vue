@@ -5,12 +5,14 @@
         src="../assets/images/OurStoryPageBanner.jpeg"
         class="image-center"/>
       <div class="image-text">
-        <h1>Our Story</h1>
+        <h1 class="hidden-sm-and-down">Our Story</h1>
       </div>   
-    </div>                   
+    </div>
+    <h1 class="hidden-md-and-up">Our Story</h1>               
     <v-layout>
       <v-col>
-        <h2>Eagan</h2>  
+        <h2 class="page-top-padding hidden-sm-and-down">Eagan</h2>
+        <h2 class="hidden-md-and-up">Eagan</h2>  
         <div class="our-story-text">
           Although Zach and Haley both grew up in the same hometown, their paths only crossed a handful of times. Since they
           both swam for Eagan they knew of each other, but beyond that they seldom saw one another. 
@@ -93,7 +95,11 @@ export default {
 }
 
 h2 {
-  padding-bottom: 12px;
+  padding-bottom: 16px;
+}
+
+.col {
+  padding: 0 24px 0 24px;
 }
 
 .our-story-text {
@@ -102,12 +108,16 @@ h2 {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 12px;
-  text-align: start !important;
+  padding-bottom: 16px;
+  
 }
 
 .our-story-image {
   max-width: 600px;
-  padding-bottom: 12px;
+  padding-bottom: 16px;
+}
+
+.page-top-padding {
+  padding-top: 24px;
 }
 </style>
