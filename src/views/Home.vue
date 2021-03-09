@@ -4,13 +4,20 @@
       <img
         src="../assets/images/HomePageBanner.jpeg"
         class="image-center"/>
-      <div class="image-text">
+      <div class="image-text hidden-sm-and-down">
         <h1>Zach & Haley</h1>
         <h2>August 7, 2021 ∙ Kasota, MN</h2>
         <h2>{{ getDayCountToWedding() }}</h2>
       </div>
     </div>
-  
+
+    <div class="hidden-md-and-up">
+      <h1>Zach & Haley</h1>
+      <h2>August 7, 2021 ∙ Kasota, MN</h2>
+      <h2>{{ getDayCountToWedding() }}</h2>
+      <v-divider class="our-story-title-divider"></v-divider>
+    </div>
+
     <h1>The Wedding</h1>
 
     <v-layout class="wedding-info-cards">
@@ -36,14 +43,14 @@
 
     <v-card flat tile width="100%" color="#a4b48c" class="our-story-card">
       <v-layout>
-        <v-col class="our-story-card-divider">
+        <v-col class="our-story-card-divider hidden-sm-and-down">
           <v-divider color="white"></v-divider>
         </v-col>
         <v-col class="our-story-card-display">
           <div class="detail our-story-card-text">See how it all started</div>
           <v-btn outlined large color="white" to="/our-story" class="detail-button our-story-card-button">Our Story</v-btn>
         </v-col>
-        <v-col class="our-story-card-divider">
+        <v-col class="our-story-card-divider hidden-sm-and-down">
           <v-divider color="white"></v-divider>
         </v-col>
       </v-layout>
@@ -138,6 +145,8 @@ export default {
 
 .our-story-card-display {
   max-width: 328px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .our-story-card-text {
@@ -152,5 +161,9 @@ export default {
 .our-story-card-divider {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.our-story-title-divider {
+  margin: 24px 24px 16px 24px;
 }
 </style>
