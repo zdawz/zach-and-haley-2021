@@ -164,7 +164,8 @@ h4 {
 }
 
 .v-footer {
-  margin-top: 32px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .footer {
