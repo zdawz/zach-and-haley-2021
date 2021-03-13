@@ -3,9 +3,6 @@
     <v-app-bar app flat color="rgb(255, 255, 255, 0.9)">
       <template v-slot:extension>
         <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = true" />
-        <v-toolbar-title class="hidden-md-and-up navigation-item">{{
-          pageTitle
-        }}</v-toolbar-title>
         <v-tabs class="hidden-sm-and-down">
           <v-tab v-for="(item, i) in items" :key="i" :to="item.route">{{
             item.title
@@ -14,7 +11,7 @@
       </template>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" fixed temporary>
+    <v-navigation-drawer v-model="drawer" app>
       <v-list>
         <v-list-item-group>
           <v-list-item
@@ -68,7 +65,6 @@ export default {
   data() {
     return {
       drawer: false,
-      pageTitle: "Our Wedding",
       items: [
         {
           title: "Our Wedding",
@@ -108,7 +104,6 @@ export default {
   methods: {
     chooseNavigationItem(item) {
       router.push({ path: item.route });
-      this.pageTitle = item.title;
     },
   },
 };
