@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="image-and-text">
-      <img
-        src="../assets/images/HomePageBanner.jpeg"
-        class="image-center"/>
+      <v-img src="../assets/images/HomePageBanner.jpeg" class="image-center" />
       <div class="image-text hidden-sm-and-down">
         <h1>Zach & Haley</h1>
         <h2>August 7, 2021 ∙ Kasota, MN</h2>
@@ -25,19 +23,37 @@
         <div class="detail">When</div>
         <div class="detail-text">Saturday, August 7, 2021</div>
         <div class="detail-text">4:00 PM - 11:00 PM</div>
-        <v-btn outlined large color="#2e2e2e" to="/details" class="detail-button">Details</v-btn>
+        <v-btn
+          outlined
+          large
+          color="#2e2e2e"
+          to="/details"
+          class="detail-button"
+        >
+          Details
+        </v-btn>
       </v-card>
       <v-card flat outlined class="wedding-info-card">
         <div class="detail">Where</div>
         <div class="detail-text">Olive Branch Farm</div>
         <div class="detail-text">34589 470th Street</div>
         <div class="detail-text">Kasota, MN 56050</div>
-        <v-btn outlined large color="#2e2e2e" @click="openMap()" class="detail-button">Map</v-btn>
+        <v-btn
+          outlined
+          large
+          color="#2e2e2e"
+          @click="openMap()"
+          class="detail-button"
+        >
+          Map
+        </v-btn>
       </v-card>
       <v-card flat outlined class="wedding-info-card">
         <div class="detail">Join Us</div>
         <div class="detail-text">We hope you can make it!</div>
-        <v-btn outlined large color="#2e2e2e" to="/rsvp" class="detail-button">RSVP</v-btn>
+        <v-btn outlined large color="#2e2e2e" to="/rsvp" class="detail-button">
+          RSVP
+        </v-btn>
       </v-card>
     </v-layout>
 
@@ -48,7 +64,15 @@
         </v-col>
         <v-col class="our-story-card-display">
           <div class="detail our-story-card-text">See how it all started</div>
-          <v-btn outlined large color="white" to="/our-story" class="detail-button our-story-card-button">Our Story</v-btn>
+          <v-btn
+            outlined
+            large
+            color="white"
+            to="/our-story"
+            class="detail-button our-story-card-button"
+          >
+            Our Story
+          </v-btn>
         </v-col>
         <v-col class="our-story-card-divider hidden-sm-and-down">
           <v-divider color="white"></v-divider>
@@ -60,28 +84,26 @@
 
 <script>
 export default {
-  name: 'Home',
+  name: "Home",
   methods: {
     openMap() {
       window.open("https://goo.gl/maps/u7pZJGeKHarSC6YQ8", "_blank");
     },
     getDayCountToWedding() {
       const todayDate = new Date();
-      const weddingDate = new Date('08/07/2021');
-      const timeDifference = weddingDate.getTime() - todayDate.getTime(); 
-      var days = parseInt(timeDifference / (1000 * 3600 * 24)); 
+      const weddingDate = new Date("08/07/2021");
+      const timeDifference = weddingDate.getTime() - todayDate.getTime();
+      var days = parseInt(timeDifference / (1000 * 3600 * 24));
 
       if (days > 0) {
         return days == 1 ? days + " day to go" : days + " days to go";
-      }
-      else if (days == 0) {
+      } else if (days == 0) {
         return "today";
-      }
-      else {
+      } else {
         days = Math.abs(days);
         return days == 1 ? days + " day ago" : days + " days ago";
       }
-    }
+    },
   },
 };
 </script>
@@ -90,13 +112,6 @@ export default {
 .image-and-text {
   text-align: center;
   position: relative;
-}
-
-.image-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
 }
 
 .image-text {
