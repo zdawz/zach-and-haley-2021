@@ -2,20 +2,38 @@
   <div>
     <div class="image-and-text">
       <v-img src="../assets/images/HomePageBanner.jpeg" class="image-center" />
-      <div class="image-text hidden-sm-and-down">
+      <div class="image-text hidden-md-and-down">
         <h1>Zach & Haley</h1>
         <h2>August 7, 2021 ∙ Kasota, MN</h2>
         <h2>{{ getDayCountToWedding() }}</h2>
       </div>
     </div>
 
-    <div class="hidden-md-and-up small-title-padding">
-      <h1>Zach & Haley</h1>
-      <h2>August 7, 2021 ∙ Kasota, MN</h2>
-      <h2>{{ getDayCountToWedding() }}</h2>
+    <div class="hidden-lg-and-up small-title-padding title-area">
+      <v-row class="title-row">
+        <v-col class="title-image hidden-sm-and-down">
+          <v-row class="title-image-row">
+            <img
+              :src="require('../assets/images/blackGreeneryLeft.png')"
+              height="80px" />
+          </v-row>
+        </v-col>
+        <v-col class="title-text">
+          <h1>Zach & Haley</h1>
+          <h2>August 7, 2021 ∙ Kasota, MN</h2>
+          <h2>{{ getDayCountToWedding() }}</h2>
+        </v-col>
+        <v-col class="title-image hidden-sm-and-down">
+          <v-row class="title-image-row">
+            <img
+              :src="require('../assets/images/blackGreeneryRight.png')"
+              height="80px" />
+          </v-row>
+        </v-col>
+      </v-row>
     </div>
 
-    <h1 class="hidden-sm-and-down">The Wedding</h1>
+    <h1 class="hidden-md-and-down small-title-padding">The Wedding</h1>
 
     <v-layout class="wedding-info-cards">
       <v-card flat outlined class="wedding-info-card">
@@ -27,8 +45,7 @@
           large
           color="#2e2e2e"
           to="/details"
-          class="detail-button"
-        >
+          class="detail-button">
           Details
         </v-btn>
       </v-card>
@@ -42,8 +59,7 @@
           large
           color="#2e2e2e"
           @click="openMap()"
-          class="detail-button"
-        >
+          class="detail-button">
           Map
         </v-btn>
       </v-card>
@@ -68,8 +84,7 @@
             large
             color="white"
             to="/our-story"
-            class="detail-button our-story-card-button"
-          >
+            class="detail-button our-story-card-button">
             Our Story
           </v-btn>
         </v-col>
@@ -180,5 +195,33 @@ export default {
 .small-title-padding {
   padding-top: 16px;
   padding-bottom: 24px;
+}
+
+.title-area {
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title-row {
+  justify-content: center;
+}
+
+.title-text {
+  text-align: center;
+  padding: 0 !important;
+  max-width: 320px !important;
+}
+
+.title-image {
+  max-width: 83px !important;
+  padding: 0 !important;
+}
+
+.title-image-row {
+  padding-top: 30px !important;
+  margin-right: 0;
+  margin-left: 0;
+  max-width: 83px !important;
 }
 </style>
