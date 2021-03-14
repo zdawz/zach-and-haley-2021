@@ -3,8 +3,7 @@
     <div class="image-and-text">
       <v-img
         src="../assets/images/OurStoryPageBanner.jpeg"
-        class="image-center"
-      />
+        class="image-center" />
       <div class="image-text">
         <h1 class="hidden-sm-and-down">Our Story</h1>
       </div>
@@ -28,7 +27,7 @@
         </div>
         <div class="our-story-text">
           In the fall of 2016, Zach arrived at Gustavus and joined the swim
-          team. Both Zach and Haley swam in the distance group, so they saw each
+          team. Both Zach and Haley swam in the distance training group, so they saw each
           other almost daily at practices. They also both studied computer
           science, so Haley offered to help Zach with homework if he ever needed
           it. Zach took her up on this offer a few times. The more time they
@@ -38,8 +37,7 @@
         </div>
         <img
           src="../assets/images/our-story/ZachAndHaleyFirstDate.jpeg"
-          class="image-center our-story-image"
-        />
+          class="image-center our-story-image" />
         <div class="our-story-text">
           Over the coming months and years, Zach and Haley grew a strong
           connection and love for one another. They were each other's biggest
@@ -51,8 +49,7 @@
         </div>
         <img
           src="../assets/images/our-story/ZachAndHaleySwimming.jpeg"
-          class="image-center our-story-image"
-        />
+          class="image-center our-story-image" />
         <div class="our-story-text">
           After college, Zach and Haley spent a lot more time with each other's
           families. Most of the time they would have game nights, and they would
@@ -77,8 +74,7 @@
         </div>
         <img
           src="../assets/images/our-story/ZachAndHaleyProposal.jpeg"
-          class="image-center our-story-image"
-        />
+          class="image-center our-story-image" />
       </v-col>
     </v-layout>
   </div>
