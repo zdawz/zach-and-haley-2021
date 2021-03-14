@@ -81,7 +81,7 @@ export default {
 <style scoped>
 .wedding-party-bios {
   flex-wrap: wrap;
-  max-width: 75%;
+  max-width: 840px;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
