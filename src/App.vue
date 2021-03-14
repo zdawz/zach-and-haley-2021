@@ -4,9 +4,9 @@
       <template v-slot:extension>
         <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = true" />
         <v-tabs class="hidden-sm-and-down">
-          <v-tab v-for="(item, i) in items" :key="i" :to="item.route">{{
-            item.title
-          }}</v-tab>
+          <v-tab v-for="(item, i) in items" :key="i" :to="item.route">
+            {{ item.title }}
+          </v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
@@ -17,8 +17,7 @@
           <v-list-item
             v-for="(item, i) in items"
             :key="i"
-            @click="chooseNavigationItem(item)"
-          >
+            @click="chooseNavigationItem(item)">
             <v-list-item-content class="navigation-item">
               <v-list-item-title v-text="item.title"></v-list-item-title>
             </v-list-item-content>
@@ -37,8 +36,7 @@
           <v-col class="footer-image">
             <img
               :src="require('./assets/images/blackGreeneryLeft.png')"
-              height="32px"
-            />
+              height="32px" />
           </v-col>
           <v-col class="footer-text">
             <div class="footer-cursive-font">Z + H</div>
@@ -47,8 +45,7 @@
           <v-col class="footer-image">
             <img
               :src="require('./assets/images/blackGreeneryRight.png')"
-              height="32px"
-            />
+              height="32px" />
           </v-col>
         </v-row>
         <v-row class="footer-hashtag">#DawsonGetBetterThanThis</v-row>
@@ -218,6 +215,8 @@ h4 {
 .navigation-item {
   color: #4b4b4b !important;
   text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.0892857143em;
 }
 
 @font-face {
