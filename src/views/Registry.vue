@@ -1,14 +1,13 @@
 <template>
   <div>
     <h1>Registry</h1>
-    <h3>
-      Your love, laughter, and company on our big day is the greatest gift of
-      all.
-    </h3>
-    <h3>
-      However, should you wish to help us celebrate with a gift, please choose
-      from our registry.
-    </h3>
+
+    <v-col class="column-padding">
+      <h3>
+        Your love, laughter, and company on our big day is the greatest gift of all.
+        However, should you wish to help us celebrate with a gift, please choose from our registries.
+      </h3>
+    </v-col>
 
     <v-layout class="registry-cards">
       <v-card flat outlined class="registry-card">
@@ -21,8 +20,7 @@
           color="#2e2e2e"
           class="registry-button"
           href="https://www.amazon.com/wedding/zach-dawson-haley-pesik-kasota-august-2021/registry/2Z59QTTOH359J"
-          target="_blank"
-        >
+          target="_blank">
           See registry
         </v-btn>
       </v-card>
@@ -32,12 +30,6 @@
         </v-avatar>
         <v-btn outlined large color="#2e2e2e" class="registry-button">
           See registry
-        </v-btn>
-      </v-card>
-      <v-card flat outlined class="registry-card">
-        <v-avatar rounded size="200"> </v-avatar>
-        <v-btn outlined large color="#2e2e2e" class="registry-button">
-          Honeymoon Fund
         </v-btn>
       </v-card>
     </v-layout>
@@ -66,6 +58,10 @@ export default {
 }
 
 .registry-button {
-  margin: 24px 16px 0 16px;
+  margin: 24px 0 0 0;
+}
+
+.column-padding {
+  padding: 0 24px 0 24px;
 }
 </style>
