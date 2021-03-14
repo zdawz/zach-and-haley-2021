@@ -1,13 +1,19 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Details from "../views/Details.vue";
-import Home from "../views/Home.vue";
-import OurStory from "../views/OurStory.vue";
-import Gallery from "../views/Gallery.vue";
-import Registry from "../views/Registry.vue";
-import RSVP from "../views/RSVP";
-import Travel from "../views/Travel";
-import WeddingParty from "../views/WeddingParty.vue";
+const Details = () =>
+  import(/* webpackChunkName: "Details" */ "../views/Details.vue");
+const Home = () => import(/* webpackChunkName: "Home" */ "../views/Home.vue");
+const OurStory = () =>
+  import(/* webpackChunkName: "OurStory" */ "../views/OurStory.vue");
+const Gallery = () =>
+  import(/* webpackChunkName: "Gallery" */ "../views/Gallery.vue");
+const Registry = () =>
+  import(/* webpackChunkName: "Registry" */ "../views/Registry.vue");
+const RSVP = () => import(/* webpackChunkName: "RSVP" */ "../views/RSVP.vue");
+const Travel = () =>
+  import(/* webpackChunkName: "Travel" */ "../views/Travel.vue");
+const WeddingParty = () =>
+  import(/* webpackChunkName: "WeddingParty" */ "../views/WeddingParty.vue");
 
 Vue.use(VueRouter);
 
@@ -58,6 +64,9 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
 });
 
 export default router;
