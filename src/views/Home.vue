@@ -11,7 +11,7 @@
 
     <div class="hidden-lg-and-up small-title-padding title-area">
       <v-row class="title-row">
-        <v-col class="title-image hidden-sm-and-down">
+        <v-col class="title-image hidden-xs-only">
           <v-row class="title-image-row">
             <img
               :src="require('../assets/images/blackGreeneryLeft.png')"
@@ -23,7 +23,7 @@
           <h2>August 7, 2021 ∙ Kasota, MN</h2>
           <h2>{{ getDayCountToWedding() }}</h2>
         </v-col>
-        <v-col class="title-image hidden-sm-and-down">
+        <v-col class="title-image hidden-xs-only">
           <v-row class="title-image-row">
             <img
               :src="require('../assets/images/blackGreeneryRight.png')"
