@@ -1,8 +1,11 @@
 <template>
   <div>
     <h1>Travel</h1>
-    <h3>We are so excited to celebrate with you!</h3>
-    <h3>Best Western Plus Saint Peter is our recommendation for your stay near Kasota, MN.</h3>
+
+    <v-col class="column-padding">
+      <h3>We are so excited to celebrate with you!</h3>
+      <h3>Best Western Plus Saint Peter is our recommendation for your stay near Kasota, MN.</h3>
+    </v-col>
     
     <img
       src="../assets/images/travel/BestWesternPlusStPeter.jpg"
@@ -58,5 +61,9 @@ export default {
   margin-left: auto;
   margin-right: auto;
   margin-top: 24px;
+}
+
+.column-padding {
+  padding: 0 24px 0 24px;
 }
 </style>
