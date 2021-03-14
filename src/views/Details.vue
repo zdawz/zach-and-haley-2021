@@ -78,7 +78,7 @@
             <v-col :class="this.$vuetify.breakpoint.xsOnly ? '' : 'detail-title-column'">
               <div class="detail">Happy Hour</div>
               <div class="detail-subtitle">Saturday, August 7, 2021</div>
-              <div class="detail-subtitle">5:00 PM</div>
+              <div class="detail-subtitle">4:30 PM</div>
               <v-divider class="hidden-sm-and-up horizontal-divider" />
               <div class="hidden-sm-and-up detail-text">{{ happyHourText }}</div>
             </v-col>
@@ -93,7 +93,7 @@
             <v-col :class="this.$vuetify.breakpoint.xsOnly ? '' : 'detail-title-column'">
               <div class="detail">Dinner & Dancing</div>
               <div class="detail-subtitle">Saturday, August 7, 2021</div>
-              <div class="detail-subtitle">6:00 PM</div>
+              <div class="detail-subtitle">5:15 PM</div>
               <v-divider class="hidden-sm-and-up horizontal-divider" />
               <div class="hidden-sm-and-up detail-text">{{ receptionText1 }}</div>
               <div class="hidden-sm-and-up">-</div>
@@ -125,7 +125,7 @@ export default {
     return {
       ceremonyText1: "The ceremony will be outside, weather pending.",
       ceremonyText2: "We will be having an unplugged ceremony. While we fully encourage everyone to bring their phones and cameras to document the day, we politely request that all devices be turned off during the ceremony.",
-      happyHourText: "Drinks, appetizers and yard games on the outdoor patio.",
+      happyHourText: "Drinks and yard games on the outdoor patio.",
       receptionText1: "The reception will be inside the barn.",
       receptionText2: "Dinner, drinks and dancing to follow our ceremony.",
     };
