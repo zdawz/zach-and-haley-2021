@@ -63,5 +63,8 @@ export default {
 
 .column-padding {
   padding: 0 24px 0 24px;
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
