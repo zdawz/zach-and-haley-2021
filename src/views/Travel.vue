@@ -10,13 +10,13 @@
     </v-col>
     
     <img
-      src="../assets/images/travel/BestWesternPlusStPeter.jpg"
+      src="../assets/images/travel/CountryInnAndSuites.jpg"
       class="image-center travel-image"/>
 
     <v-card flat>
-      <div class="travel-subtitle">Best Western Plus Saint Peter</div>
-      <div class="travel-subtitle">1301 Old Minnesota Avenue, St Peter, MN 56082</div>
-      <div class="travel-subtitle">507-519-1234</div>
+      <div class="travel-subtitle">Country Inn & Suites by Radisson</div>
+      <div class="travel-subtitle">1900 Premier Drive, Mankato, MN 56001</div>
+      <div class="travel-subtitle">507-388-8555</div>
     </v-card>
   </div>
 </template>
@@ -53,5 +53,8 @@ export default {
 
 .column-padding {
   padding: 0 24px 0 24px;
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
