@@ -4,8 +4,9 @@
     <v-form
       v-if="!userFound"
       v-model="validName"
-      @submit.prevent="onNameSubmit">
-      <v-container>
+      @submit.prevent="onNameSubmit"
+      class="form-padding">
+      <v-container class="px-0">
         <h3 class="pb-4">The Wedding of Zach Dawson and Haley Pesik</h3>
         <h4 class="pb-4">
           If you're responding for you and a guest (or your family), you'll be
@@ -37,7 +38,7 @@
       </v-container>
     </v-form>
     <v-form v-else v-model="validForm" @submit.prevent="onFormSubmit">
-      <v-container>
+      <v-container class="px-0">
         <v-simple-table>
           <template v-slot:default>
             <tbody>
@@ -241,5 +242,10 @@ export default {
 .alert-text {
   margin-left: auto;
   margin-right: auto;
+}
+
+.form-padding {
+  padding-left: 24px;
+  padding-right: 24px;
 }
 </style>
