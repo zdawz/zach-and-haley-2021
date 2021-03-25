@@ -28,7 +28,13 @@
         <v-avatar rounded size="200">
           <img src="../assets/images/registry/bed-bath-and-beyond.jpg" />
         </v-avatar>
-        <v-btn outlined large color="#2e2e2e" class="registry-button">
+        <v-btn
+          outlined
+          large
+          color="#2e2e2e"
+          class="registry-button"
+          href="https://www.bedbathandbeyond.com/store/giftregistry/viewregistryguest/550108761?eventType=Wedding"
+          target="_blank">
           See registry
         </v-btn>
       </v-card>
