@@ -4,7 +4,7 @@
     <v-container>
       <v-carousel continuous hide-delimiters show-arrows-on-hover height="90vh">
         <v-carousel-item v-for="(image, i) in images" :key="i">
-          <img
+          <v-img
             class="image-center"
             :src="require('../assets/images/engagement-pictures/' + image)"
           />
