@@ -5,8 +5,9 @@
       <v-carousel continuous hide-delimiters show-arrows-on-hover height="90vh">
         <v-carousel-item v-for="(image, i) in images" :key="i">
           <img
+            class="image-center"
             :src="require('../assets/images/engagement-pictures/' + image)"
-            class="image-center" />
+          />
         </v-carousel-item>
       </v-carousel>
     </v-container>
@@ -44,9 +45,9 @@ export default {
 
 <style scoped>
 .image-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   max-width: 100%;
   max-height: 100%;
 }
