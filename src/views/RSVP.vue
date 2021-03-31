@@ -61,7 +61,7 @@
                 <td>
                   <v-text-field
                     v-model="member.dietRestrictions"
-                    label="Diet Restrictions">
+                    label="Dietary Restrictions">
                   </v-text-field>
                 </td>
               </tr>
