@@ -2,12 +2,11 @@
   <div>
     <h1>Gallery</h1>
     <v-container>
-      <v-carousel cycle continuous hide-delimiters show-arrows-on-hover>
+      <v-carousel continuous hide-delimiters show-arrows-on-hover height="90vh">
         <v-carousel-item v-for="(image, i) in images" :key="i">
           <img
             :src="require('../assets/images/engagement-pictures/' + image)"
-            class="image-center"
-          />
+            class="image-center" />
         </v-carousel-item>
       </v-carousel>
     </v-container>
