@@ -98,6 +98,8 @@
         </div>
         <v-btn
           type="submit"
+          outlined
+          large
           :loading="formSubmitLoading"
           :disabled="!validForm">
           RSVP
