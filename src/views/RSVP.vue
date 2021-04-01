@@ -5,8 +5,7 @@
       v-if="!userFound"
       v-model="validName"
       @submit.prevent="onNameSubmit"
-      class="form-padding"
-    >
+      class="form-padding">
       <v-container class="px-0">
         <h3 class="pb-4">The Wedding of Zach Dawson and Haley Pesik</h3>
         <h4 class="pb-4">
@@ -17,15 +16,13 @@
           v-model="fullName"
           :rules="nameRules"
           label="Full Name*"
-          class="pb-2"
-        >
+          class="pb-2">
         </v-text-field>
         <v-alert
           type="error"
           v-if="nameSubmitted"
           max-width="400px"
-          class="alert-text"
-        >
+          class="alert-text">
           Oops! We’re having trouble finding your invite. Please try another
           spelling of your name or contact Zach and Haley.
         </v-alert>
@@ -35,52 +32,54 @@
           color="#2e2e2e"
           type="submit"
           :disabled="!validName"
-          class="mt-2"
-        >
+          class="mt-2">
           Find Your Invitation
         </v-btn>
       </v-container>
     </v-form>
-    <v-form v-else v-model="validForm" @submit.prevent="onFormSubmit">
+    <v-form v-else v-model="validForm" @submit.prevent="onFormSubmit" class="form-padding" :class="this.$vuetify.breakpoint.smAndDown ? 'form-style' : ''">
       <v-container class="px-0">
         <v-simple-table>
           <template v-slot:default>
             <tbody>
-              <tr v-for="member in groupMembers" :key="member.name">
-                <td class="text-left">
-                  {{ member.name }}
-                </td>
-                <td>
-                  <v-radio-group v-model="member.attending" row mandatory>
-                    <div class="pr-4">Attending?</div>
-                    <v-radio label="Yes" :value="'Y'"></v-radio>
-                    <v-radio label="No" :value="'N'"></v-radio>
-                  </v-radio-group>
-                </td>
-                <td>
-                  <v-text-field
-                    v-model="member.dietRestrictions"
-                    label="Dietary Restrictions"
-                  >
-                  </v-text-field>
-                </td>
-              </tr>
+              <div v-for="member in groupMembers" :key="member.name">
+                <v-row>
+                  <v-col class="guest-name-column-style text-left column-style pt-2">
+                    {{ member.name }}
+                  </v-col>
+                  <v-col class="column-style">
+                    <v-radio-group v-model="member.attending" row mandatory hide-details>
+                      <div class="pr-4">Attending?</div>
+                      <v-radio label="Yes" :value="'Y'"></v-radio>
+                      <v-radio label="No" :value="'N'"></v-radio>
+                    </v-radio-group>
+                  </v-col>
+                  <v-col class="column-style">
+                    <v-text-field
+                      v-model="member.dietRestrictions"
+                      label="Dietary Restrictions"
+                      hide-details>
+                    </v-text-field>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-divider class="divider-style" />
+                </v-row>
+              </div>
             </tbody>
           </template>
         </v-simple-table>
         <v-text-field
           v-model="email"
           :rules="emailRules"
-          label="Email for RSVP verification"
-        >
+          label="Email for RSVP verification">
         </v-text-field>
         <div v-if="formSubmitted">
           <v-alert
             type="error"
             v-if="!responseSaved"
             max-width="400px"
-            class="alert-text"
-          >
+            class="alert-text">
             Oops! Something went wrong when trying to save your response. Please
             try again or contact Zach and Haley if this error persists.
           </v-alert>
@@ -88,8 +87,7 @@
             type="error"
             v-else-if="email && !emailSent"
             max-width="400px"
-            class="alert-text"
-          >
+            class="alert-text">
             Oops! Something went wrong when trying to email you a confirmation.
             Please try again or contact Zach and Haley if this error persists.
           </v-alert>
@@ -101,8 +99,7 @@
         <v-btn
           type="submit"
           :loading="formSubmitLoading"
-          :disabled="!validForm"
-        >
+          :disabled="!validForm">
           RSVP
         </v-btn>
       </v-container>
@@ -251,5 +248,30 @@ export default {
 .form-padding {
   padding-left: 24px;
   padding-right: 24px;
+}
+
+.form-style {
+  max-width: 545px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column-style {
+  min-width: 262px;
+  max-width: 262px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: flex-end;
+}
+
+.guest-name-column-style {
+  font-size: 16px !important;
+}
+
+.divider-style {
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 </style>
