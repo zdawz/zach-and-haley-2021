@@ -37,6 +37,10 @@
         </v-btn>
       </v-container>
     </v-form>
+    <v-alert v-else-if="formSubmitted && responseSaved && (email ? emailSent : true)" type="success" max-width="400px" class="alert-text">
+      Thank you for your RSVP! If you provided an email address, a
+      confirmation has been sent to you.
+    </v-alert>
     <v-form v-else v-model="validForm" @submit.prevent="onFormSubmit" class="form-padding" :class="this.$vuetify.breakpoint.smAndDown ? 'form-style' : ''">
       <v-container class="px-0">
         <v-simple-table>
@@ -90,10 +94,6 @@
             class="alert-text">
             Oops! Something went wrong when trying to email you a confirmation.
             Please try again or contact Zach and Haley if this error persists.
-          </v-alert>
-          <v-alert type="success" v-else max-width="400px" class="alert-text">
-            Thank you for your RSVP! If you provided an email address, a
-            confirmation has been sent to you.
           </v-alert>
         </div>
         <v-btn
