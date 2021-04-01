@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="hidden-lg-and-up small-title-padding title-area">
+    <div class="hidden-lg-and-up title-area">
       <v-row class="title-row">
         <v-col class="title-image hidden-xs-only">
           <v-row class="title-image-row">
@@ -194,17 +194,20 @@ export default {
 
 .small-title-padding {
   padding-top: 16px;
-  padding-bottom: 24px;
+  padding-bottom: 16px;
 }
 
 .title-area {
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 16px;
+  padding-bottom: 36px;
 }
 
 .title-row {
   justify-content: center;
+  margin-right: 0;
 }
 
 .title-text {
