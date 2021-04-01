@@ -3,12 +3,11 @@
     <h1>Gallery</h1>
     <v-container>
       <v-carousel continuous hide-delimiters show-arrows-on-hover height="90vh">
-        <v-carousel-item v-for="(image, i) in images" :key="i">
-          <v-img
-            class="image-center"
-            :src="require('../assets/images/engagement-pictures/' + image)"
-          />
-        </v-carousel-item>
+        <v-carousel-item
+          v-for="(image, i) in images" :key="i"
+          :src="require('../assets/images/engagement-pictures/' + image)"
+          contain
+        />
       </v-carousel>
     </v-container>
   </div>
@@ -42,13 +41,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.image-center {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 100%;
-  max-height: 100%;
-}
-</style>
