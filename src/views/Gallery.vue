@@ -2,7 +2,7 @@
   <div>
     <h1>Gallery</h1>
     <v-container>
-      <v-carousel continuous hide-delimiters show-arrows-on-hover height="90vh">
+      <v-carousel continuous hide-delimiters show-arrows-on-hover height="92vh">
         <v-carousel-item
           v-for="(image, i) in images" :key="i"
           :src="require('../assets/images/engagement-pictures/' + image)"
@@ -19,6 +19,7 @@ export default {
   data() {
     return {
       images: [
+        "DSC04742.jpg",
         "DSC04258.jpg",
         "IMG_1757.jpeg",
         "DSC04365.jpg",
@@ -26,7 +27,6 @@ export default {
         "DSC04549.jpg",
         "DSC04567.jpg",
         "DSC04677.jpg",
-        "DSC04742.jpg",
         "DSC04824.jpg",
         "DSC04871.jpg",
         "DSC04955.jpg",
@@ -41,3 +41,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+</style>
