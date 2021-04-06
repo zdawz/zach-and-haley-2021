@@ -11,7 +11,7 @@
       </template>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" app disable-resize-watcher>
       <v-list>
         <v-list-item-group>
           <v-list-item
@@ -101,6 +101,13 @@ export default {
   methods: {
     chooseNavigationItem(item) {
       router.push({ path: item.route });
+    },
+  },
+  watch: {
+    "$vuetify.breakpoint.mdAndUp": function() {
+      if (this.$vuetify.breakpoint.mdAndUp) {
+        this.drawer = false;
+      }
     },
   },
 };
