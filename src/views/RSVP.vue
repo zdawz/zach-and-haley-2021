@@ -5,8 +5,7 @@
       v-if="!userFound"
       v-model="validName"
       @submit.prevent="onNameSubmit"
-      class="form-padding"
-    >
+      class="form-padding">
       <v-container class="px-0">
         <h3 class="pb-4">The Wedding of Zach Dawson and Haley Pesik</h3>
         <h4 class="pb-4">
@@ -17,15 +16,13 @@
           v-model="fullName"
           :rules="nameRules"
           label="Full Name*"
-          class="pb-2"
-        >
+          class="pb-2">
         </v-text-field>
         <v-alert
           type="error"
           v-if="nameSubmitted"
           max-width="400px"
-          class="alert-text"
-        >
+          class="alert-text">
           Oops! We’re having trouble finding your invite. Please try another
           spelling of your name or contact Zach and Haley.
         </v-alert>
@@ -35,8 +32,7 @@
           color="#2e2e2e"
           type="submit"
           :disabled="!validName"
-          class="mt-2"
-        >
+          class="mt-2">
           Find Your Invitation
         </v-btn>
       </v-container>
@@ -45,8 +41,7 @@
       v-else-if="formSubmitted && responseSaved && (email ? emailSent : true)"
       type="success"
       max-width="400px"
-      class="alert-text"
-    >
+      class="alert-text">
       Thank you for your RSVP! If you provided an email address, a confirmation
       has been sent to you.
     </v-alert>
@@ -55,8 +50,7 @@
       v-model="validForm"
       @submit.prevent="onFormSubmit"
       class="form-padding"
-      :class="this.$vuetify.breakpoint.smAndDown ? 'form-style' : ''"
-    >
+      :class="this.$vuetify.breakpoint.smAndDown ? 'form-style' : ''">
       <v-container class="px-0">
         <v-simple-table>
           <template v-slot:default>
@@ -64,8 +58,7 @@
               <div v-for="member in groupMembers" :key="member.name">
                 <v-row class="row-style">
                   <v-col
-                    class="guest-name-column-style text-left column-style pt-2"
-                  >
+                    class="guest-name-column-style text-left column-style pt-2">
                     {{ member.name }}
                   </v-col>
                   <v-col class="column-style">
@@ -73,19 +66,17 @@
                       v-model="member.attending"
                       row
                       mandatory
-                      hide-details
-                    >
+                      hide-details>
                       <div class="pr-4">Attending?</div>
                       <v-radio label="Yes" :value="'Y'"></v-radio>
                       <v-radio label="No" :value="'N'"></v-radio>
                     </v-radio-group>
                   </v-col>
-                  <v-col class="column-style">
+                  <v-col class="column-style pt-2">
                     <v-text-field
                       v-model="member.dietRestrictions"
                       label="Dietary Restrictions"
-                      hide-details
-                    >
+                      hide-details>
                     </v-text-field>
                   </v-col>
                 </v-row>
@@ -99,16 +90,14 @@
         <v-text-field
           v-model="email"
           :rules="emailRules"
-          label="Email for RSVP verification"
-        >
+          label="Email for RSVP verification">
         </v-text-field>
         <div v-if="formSubmitted">
           <v-alert
             type="error"
             v-if="!responseSaved"
             max-width="400px"
-            class="alert-text"
-          >
+            class="alert-text">
             Oops! Something went wrong when trying to save your response. Please
             try again or contact Zach and Haley if this error persists.
           </v-alert>
@@ -116,8 +105,7 @@
             type="error"
             v-else-if="email && !emailSent"
             max-width="400px"
-            class="alert-text"
-          >
+            class="alert-text">
             Oops! Something went wrong when trying to email you a confirmation.
             Please try again or contact Zach and Haley if this error persists.
           </v-alert>
@@ -127,8 +115,7 @@
           outlined
           large
           :loading="formSubmitLoading"
-          :disabled="!validForm"
-        >
+          :disabled="!validForm">
           RSVP
         </v-btn>
       </v-container>
