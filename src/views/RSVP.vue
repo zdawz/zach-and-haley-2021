@@ -47,7 +47,7 @@
           <template v-slot:default>
             <tbody>
               <div v-for="member in groupMembers" :key="member.name">
-                <v-row>
+                <v-row class="row-style">
                   <v-col class="guest-name-column-style text-left column-style pt-2">
                     {{ member.name }}
                   </v-col>
@@ -66,7 +66,7 @@
                     </v-text-field>
                   </v-col>
                 </v-row>
-                <v-row>
+                <v-row class="row-style">
                   <v-divider class="divider-style" />
                 </v-row>
               </div>
@@ -256,6 +256,14 @@ export default {
   max-width: 545px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.v-data-table_wrapper {
+  overflow-x: hidden;
+}
+
+.row-style {
+  max-width: 100%;
 }
 
 .column-style {
