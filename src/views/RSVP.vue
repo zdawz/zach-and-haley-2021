@@ -5,7 +5,8 @@
       v-if="!userFound"
       v-model="validName"
       @submit.prevent="onNameSubmit"
-      class="form-padding">
+      class="form-padding"
+    >
       <v-container class="px-0">
         <h3 class="pb-4">The Wedding of Zach Dawson and Haley Pesik</h3>
         <h4 class="pb-4">
@@ -16,13 +17,15 @@
           v-model="fullName"
           :rules="nameRules"
           label="Full Name*"
-          class="pb-2">
+          class="pb-2"
+        >
         </v-text-field>
         <v-alert
           type="error"
           v-if="nameSubmitted"
           max-width="400px"
-          class="alert-text">
+          class="alert-text"
+        >
           Oops! We’re having trouble finding your invite. Please try another
           spelling of your name or contact Zach and Haley.
         </v-alert>
@@ -32,27 +35,46 @@
           color="#2e2e2e"
           type="submit"
           :disabled="!validName"
-          class="mt-2">
+          class="mt-2"
+        >
           Find Your Invitation
         </v-btn>
       </v-container>
     </v-form>
-    <v-alert v-else-if="formSubmitted && responseSaved && (email ? emailSent : true)" type="success" max-width="400px" class="alert-text">
-      Thank you for your RSVP! If you provided an email address, a
-      confirmation has been sent to you.
+    <v-alert
+      v-else-if="formSubmitted && responseSaved && (email ? emailSent : true)"
+      type="success"
+      max-width="400px"
+      class="alert-text"
+    >
+      Thank you for your RSVP! If you provided an email address, a confirmation
+      has been sent to you.
     </v-alert>
-    <v-form v-else v-model="validForm" @submit.prevent="onFormSubmit" class="form-padding" :class="this.$vuetify.breakpoint.smAndDown ? 'form-style' : ''">
+    <v-form
+      v-else
+      v-model="validForm"
+      @submit.prevent="onFormSubmit"
+      class="form-padding"
+      :class="this.$vuetify.breakpoint.smAndDown ? 'form-style' : ''"
+    >
       <v-container class="px-0">
         <v-simple-table>
           <template v-slot:default>
             <tbody>
               <div v-for="member in groupMembers" :key="member.name">
                 <v-row class="row-style">
-                  <v-col class="guest-name-column-style text-left column-style pt-2">
+                  <v-col
+                    class="guest-name-column-style text-left column-style pt-2"
+                  >
                     {{ member.name }}
                   </v-col>
                   <v-col class="column-style">
-                    <v-radio-group v-model="member.attending" row mandatory hide-details>
+                    <v-radio-group
+                      v-model="member.attending"
+                      row
+                      mandatory
+                      hide-details
+                    >
                       <div class="pr-4">Attending?</div>
                       <v-radio label="Yes" :value="'Y'"></v-radio>
                       <v-radio label="No" :value="'N'"></v-radio>
@@ -62,7 +84,8 @@
                     <v-text-field
                       v-model="member.dietRestrictions"
                       label="Dietary Restrictions"
-                      hide-details>
+                      hide-details
+                    >
                     </v-text-field>
                   </v-col>
                 </v-row>
@@ -76,14 +99,16 @@
         <v-text-field
           v-model="email"
           :rules="emailRules"
-          label="Email for RSVP verification">
+          label="Email for RSVP verification"
+        >
         </v-text-field>
         <div v-if="formSubmitted">
           <v-alert
             type="error"
             v-if="!responseSaved"
             max-width="400px"
-            class="alert-text">
+            class="alert-text"
+          >
             Oops! Something went wrong when trying to save your response. Please
             try again or contact Zach and Haley if this error persists.
           </v-alert>
@@ -91,7 +116,8 @@
             type="error"
             v-else-if="email && !emailSent"
             max-width="400px"
-            class="alert-text">
+            class="alert-text"
+          >
             Oops! Something went wrong when trying to email you a confirmation.
             Please try again or contact Zach and Haley if this error persists.
           </v-alert>
@@ -101,7 +127,8 @@
           outlined
           large
           :loading="formSubmitLoading"
-          :disabled="!validForm">
+          :disabled="!validForm"
+        >
           RSVP
         </v-btn>
       </v-container>
@@ -110,9 +137,9 @@
 </template>
 
 <script>
-var { GoogleSpreadsheet } = require("google-spreadsheet");
-var validator = require("email-validator");
-var emailjs = require("emailjs-com");
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import * as EmailValidator from "email-validator";
+import emailjs from "emailjs-com";
 
 export default {
   name: "RSVP",
@@ -123,7 +150,9 @@ export default {
       fullName: "",
       nameRules: [(v) => !!v || "Full Name is required"],
       email: "",
-      emailRules: [(v) => !v || validator.validate(v) || "Email must be valid"],
+      emailRules: [
+        (v) => !v || EmailValidator.validate(v) || "Email must be valid",
+      ],
       sheetRows: [],
       group: null,
       nameSubmitted: false,
@@ -169,6 +198,40 @@ export default {
       this.group = newGroup; // Set the group. Null if user is not in one
       this.nameSubmitted = true;
     },
+    generateResponseData() {
+      // Start the table
+      let responseHtml =
+        '<table style="border-collapse: collapse; width: 100%;" border="0"><tbody>';
+      // Build the header
+      responseHtml += "<tr>";
+      responseHtml +=
+        '<td width="150px" style="text-decoration: underline;">Name</td>';
+      responseHtml +=
+        '<td width="100px" style="text-decoration: underline;">Status</td>';
+      responseHtml +=
+        '<td style="text-decoration: underline;">Dietary Restrictions</td>';
+      responseHtml += "</tr>";
+      // Add the rows
+      this.groupMembers.forEach((response) => {
+        let attendingColor = "red";
+        let attendingText = "Not Attending";
+        if (response.attending === "Y") {
+          attendingColor = "green";
+          attendingText = "Attending";
+        }
+        let dietText = response.dietRestrictions
+          ? response.dietRestrictions
+          : "";
+        responseHtml += "<tr>";
+        responseHtml += `<td style="vertical-align: top" width="150px">${response.name}</td>`;
+        responseHtml += `<td style="color: ${attendingColor}; vertical-align: top" width="100px">${attendingText}</td>`;
+        responseHtml += `<td style="vertical-align: top">${dietText}</td>`;
+        responseHtml += "</tr>";
+      });
+      // End the table
+      responseHtml += "</tbody></table>";
+      return responseHtml;
+    },
     async onFormSubmit() {
       this.formSubmitted = false;
       this.formSubmitLoading = true;
@@ -185,24 +248,12 @@ export default {
       }
 
       if (this.responseSaved) {
-        // Convert the form JSON to CSV
-        // Use the first response to choose the keys and the order
-        const memberHeaders = Object.keys(this.groupMembers[0]).filter(
-          (key) => !key.startsWith("_") // Remove keys added by google-spreadsheet
-        );
-        // Build the header
-        let csv = memberHeaders.join(",") + "<br/>";
-        // Add the rows
-        this.groupMembers.forEach(function(obj) {
-          csv += memberHeaders.map((k) => obj[k]).join(",") + "<br/>";
-        });
-
-        // Send the form data back to us and send an auto-reply to the user
-        var templateParams = {
+        // Send the response data back to us
+        let templateParams = {
           group: this.group,
           name: this.fullName,
-          responseData: csv,
-          autoReplyEmail: this.email,
+          responseData: this.generateResponseData(),
+          autoReplyEmail: this.email, // Auto-reply to the user (if they included their email)
         };
         emailjs.init(process.env.VUE_APP_EMAILJS_USER_ID);
         let success = false;
