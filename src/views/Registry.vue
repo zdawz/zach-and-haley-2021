@@ -5,7 +5,7 @@
     <v-col class="column-padding">
       <h3>
         Your love, laughter, and company on our big day is the greatest gift of all.
-        However, should you wish to help us celebrate with a gift, please choose from our registries.
+        However, should you wish to help us celebrate with a gift, please choose from our registries or contribute to our honeymoon fund.
       </h3>
     </v-col>
 

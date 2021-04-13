@@ -39,7 +39,7 @@
               height="32px" />
           </v-col>
           <v-col class="footer-text">
-            <div class="footer-cursive-font">Z + H</div>
+            <div class="footer-cursive-font">H + Z</div>
             <div class="footer-regular-font">08.07.21</div>
           </v-col>
           <v-col class="footer-image">
@@ -49,7 +49,7 @@
           </v-col>
         </v-row>
         <v-row class="footer-hashtag">#DawsonGetBetterThanThis</v-row>
-        <v-row class="footer-message">Coded with love by Zach and Haley</v-row>
+        <v-row class="footer-message">Coded with love by Haley and Zach</v-row>
       </div>
     </v-footer>
   </v-app>

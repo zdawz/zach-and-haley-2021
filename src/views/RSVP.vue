@@ -7,7 +7,7 @@
       @submit.prevent="onNameSubmit"
       class="form-padding">
       <v-container class="px-0">
-        <h3 class="pb-4">The Wedding of Zach Dawson and Haley Pesik</h3>
+        <h3 class="pb-4">The Wedding of Haley Pesik and Zach Dawson</h3>
         <h4 class="pb-4">
           If you're responding for you and a guest (or your family), you'll be
           able to RSVP for your entire group.
@@ -24,7 +24,7 @@
           max-width="400px"
           class="alert-text">
           Oops! We’re having trouble finding your invite. Please try another
-          spelling of your name or contact Zach and Haley.
+          spelling of your name or contact Haley and Zach.
         </v-alert>
         <v-btn
           outlined
@@ -99,7 +99,7 @@
             max-width="400px"
             class="alert-text">
             Oops! Something went wrong when trying to save your response. Please
-            try again or contact Zach and Haley if this error persists.
+            try again or contact Haley and Zach if this error persists.
           </v-alert>
           <v-alert
             type="error"
@@ -107,7 +107,7 @@
             max-width="400px"
             class="alert-text">
             Oops! Something went wrong when trying to email you a confirmation.
-            Please try again or contact Zach and Haley if this error persists.
+            Please try again or contact Haley and Zach if this error persists.
           </v-alert>
         </div>
         <v-btn

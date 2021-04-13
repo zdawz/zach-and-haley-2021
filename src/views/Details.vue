@@ -127,7 +127,7 @@ export default {
       ceremonyText2: "We will be having an unplugged ceremony. While we fully encourage everyone to bring their phones and cameras to document the day, we politely request that all devices be turned off during the ceremony.",
       happyHourText: "Drinks and yard games on the outdoor patio.",
       receptionText1: "The reception will be inside the barn.",
-      receptionText2: "Dinner, drinks and dancing to follow our ceremony.",
+      receptionText2: "Dinner and dancing to follow our ceremony.",
     };
   },
 };

@@ -14,7 +14,7 @@
         <h2 class="page-top-padding hidden-sm-and-down">Eagan</h2>
         <h2 class="hidden-md-and-up">Eagan</h2>
         <div class="our-story-text">
-          Although Zach and Haley both grew up in the same hometown, their paths
+          Although Haley and Zach both grew up in the same hometown, their paths
           only crossed a handful of times. Since they both swam for Eagan they
           knew of each other, but beyond that they seldom saw one another.
         </div>
@@ -27,7 +27,7 @@
         </div>
         <div class="our-story-text">
           In the fall of 2016, Zach arrived at Gustavus and joined the swim
-          team. Both Zach and Haley swam in the distance training group, so they saw each
+          team. Both Haley and Zach swam in the distance training group, so they saw each
           other almost daily at practices. They also both studied computer
           science, so Haley offered to help Zach with homework if he ever needed
           it. Zach took her up on this offer a few times. The more time they
@@ -39,7 +39,7 @@
           src="../assets/images/our-story/ZachAndHaleyFirstDate.jpeg"
           class="image-center our-story-image" />
         <div class="our-story-text">
-          Over the coming months and years, Zach and Haley grew a strong
+          Over the coming months and years, Haley and Zach grew a strong
           connection and love for one another. They were each other's biggest
           cheerleaders in the pool, and best study partners in the classroom.
           The two spent their college years not only swimming and studying
@@ -51,7 +51,7 @@
           src="../assets/images/our-story/ZachAndHaleySwimming.jpeg"
           class="image-center our-story-image" />
         <div class="our-story-text">
-          After college, Zach and Haley spent a lot more time with each other's
+          After college, Haley and Zach spent a lot more time with each other's
           families. Most of the time they would have game nights, and they would
           regularly play Catan, Kan Jam, Spike Ball, and card games. The two
           grew closer and closer with each other's families until they were like
