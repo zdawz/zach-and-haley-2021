@@ -10,6 +10,7 @@
         />
       </v-carousel>
     </v-container>
+    <div class="gallery-subtitle">Photos by Will Clark</div>
   </div>
 </template>
 
@@ -46,5 +47,9 @@ export default {
 .container {
   padding-left: 0;
   padding-right: 0;
+}
+
+.gallery-subtitle {
+  text-transform: uppercase;
 }
 </style>
