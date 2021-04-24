@@ -38,6 +38,20 @@
           See registry
         </v-btn>
       </v-card>
+      <v-card flat outlined class="registry-card">
+        <v-avatar rounded size="200">
+          <img src="../assets/images/registry/target.png" />
+        </v-avatar>
+        <v-btn
+          outlined
+          large
+          color="#2e2e2e"
+          class="registry-button"
+          href="https://www.target.com/gift-registry/giftgiver?registryId=8cb8bbd271a049908559caf6759f0dc5&lnk=registry_custom_url"
+          target="_blank">
+          See registry
+        </v-btn>
+      </v-card>
     </v-layout>
   </div>
 </template>
