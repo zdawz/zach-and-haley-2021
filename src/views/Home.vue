@@ -107,7 +107,7 @@ export default {
       const todayDate = new Date();
       const weddingDate = new Date("08/07/2021");
       const timeDifference = weddingDate.getTime() - todayDate.getTime();
-      var days = parseInt(timeDifference / (1000 * 3600 * 24));
+      var days = Math.ceil(timeDifference / (1000 * 3600 * 24));
 
       if (days > 0) {
         return days == 1 ? days + " day to go" : days + " days to go";
