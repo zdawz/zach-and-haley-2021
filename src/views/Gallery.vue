@@ -6,11 +6,10 @@
         <v-carousel-item
           v-for="(image, i) in images" :key="i"
           :src="require('../assets/images/engagement-pictures/' + image)"
-          contain
-        />
+          contain />
       </v-carousel>
     </v-container>
-    <div class="gallery-subtitle">Photos by Will Clark</div>
+    <div class="gallery-subtitle">Photos by Jennifer Sanders Photography & Will Clark</div>
   </div>
 </template>
 
@@ -20,7 +19,29 @@ export default {
   data() {
     return {
       images: [
-        "DSC04742.jpg",
+        "004.jpg",
+        "010.jpg",
+        "011.jpg",
+        "014.jpg",
+        "016.jpg",
+        "019.jpg",
+        "024.jpg",
+        "025.jpg",
+        "029.jpg",
+        "030.jpg",
+        "031.jpg",
+        "042.jpg",
+        "043.jpg",
+        "045.jpg",
+        "049.jpg",
+        "071.jpg",
+        "075.jpg",
+        "082.jpg",
+        "095.jpg",
+        "097.jpg",
+        "109.jpg",
+        "124.jpg",
+        "125.jpg",
         "DSC04258.jpg",
         "IMG_1757.jpeg",
         "DSC04365.jpg",
@@ -28,6 +49,7 @@ export default {
         "DSC04549.jpg",
         "DSC04567.jpg",
         "DSC04677.jpg",
+        "DSC04742.jpg",
         "DSC04824.jpg",
         "DSC04871.jpg",
         "DSC04955.jpg",

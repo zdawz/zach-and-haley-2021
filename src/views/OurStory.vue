@@ -2,7 +2,7 @@
   <div>
     <div class="image-and-text">
       <v-img
-        src="../assets/images/OurStoryPageBanner.jpeg"
+        src="../assets/images/engagement-pictures/106.jpeg"
         class="image-center" />
       <div class="image-text">
         <h1 class="hidden-sm-and-down">Our Story</h1>

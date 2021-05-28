@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="image-and-text">
-      <v-img src="../assets/images/HomePageBanner.jpeg" class="image-center" />
+      <v-img src="../assets/images/engagement-pictures/021.jpg" class="image-center" />
       <div class="image-text hidden-md-and-down">
         <h1>Haley & Zach</h1>
         <h2>August 7, 2021 ∙ Kasota, MN</h2>
@@ -134,7 +134,6 @@ export default {
   top: 0px;
   margin-left: auto;
   margin-right: auto;
-  color: white;
   width: 100%;
 }
 
