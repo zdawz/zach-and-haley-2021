@@ -18,15 +18,15 @@
         biography="College roommate"
         imageName="Caitlin.jpeg"/>
       <WeddingPartyBio 
-        name="Linde Schaffer"
-        position="Bridesmaid"
-        biography="High school friend"
-        imageName="Linde.jpeg"/>
-      <WeddingPartyBio 
         name="Meghan Skluzacek"
         position="Bridesmaid"
         biography="Childhood friend"
         imageName="Meghan.jpeg"/>
+      <WeddingPartyBio 
+        name="Linde Schaffer"
+        position="Bridesmaid"
+        biography="High school friend"
+        imageName="Linde.jpeg"/>
       <WeddingPartyBio 
         name="Lydia Dawson"
         position="Bridesmaid"
