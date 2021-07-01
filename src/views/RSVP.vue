@@ -13,7 +13,7 @@
           able to RSVP for your entire group.
         </h4>
         <v-text-field
-          v-model="fullName"
+          v-model="name"
           :rules="nameRules"
           label="Full Name*"
           class="pb-2">
@@ -134,7 +134,7 @@ export default {
     return {
       validName: false,
       validForm: false,
-      fullName: "",
+      name: "",
       nameRules: [(v) => !!v || "Full Name is required"],
       email: "",
       emailRules: [
@@ -156,6 +156,9 @@ export default {
     groupMembers() {
       // Filter out all rows of data that don't match the active group
       return this.sheetRows.filter((row) => row.group === this.group);
+    },
+    fullName() {
+      return this.name.trim();
     },
   },
   methods: {
