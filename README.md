@@ -1,9 +1,5 @@
 # zach-and-haley-2021
 
-## Deployment status
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c6220c9b-7c6b-4e2b-a0de-0c3e4c540dd1/deploy-status)](https://app.netlify.com/sites/zachandhaley2021/deploys)
-
 ## Project setup
 
 ```bash
